@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Services\Companies\CompanyService;
+use App\Services\Laporans\LaporanService;
 
-class CompanyController extends Controller
+class LaporanController extends Controller
 {
     protected $service;
 
-    public function __construct(CompanyService $service)
+    public function __construct(LaporanService $service)
     {
         $this->service = $service;
     }
@@ -18,13 +18,13 @@ class CompanyController extends Controller
     {
         $data = $this->service->browse($request);
 
-        return View('admin.companies.index', $data);
+        return View('admin.laporans.index', $data);
     }
 
     public function input(Request $request)
     {
         $data = array();
-        return View('admin.companies.add', $data);
+        return View('admin.laporans.add', $data);
     }
 
     public function add(Request $request)
@@ -39,7 +39,7 @@ class CompanyController extends Controller
         $data = [
             "company" => $this->service->get()
         ];
-        return View('admin.companies.edit', $data);
+        return View('admin.laporans.edit', $data);
     }
 
     public function update(Request $request)

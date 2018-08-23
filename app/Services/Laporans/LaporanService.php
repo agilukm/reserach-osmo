@@ -47,29 +47,18 @@ class LaporanService
 
     public function fill(Laporan $laporan, $input)
     {
-        $laporan->company_id = $input['company_id'];
-        $laporan->tgl_berlaku = $input['tgl_berlaku'];
-        $laporan->tgl_berakhir = $input['tgl_berakhir'];
-        $laporan->no_sertifikat = $input['no_sertifikat'];
-        $laporan->no_registrasi = $input['no_registrasi'];
-        $laporan->tahun_pembuatan = $input['tahun_pembuatan'];
-        $laporan->mesin_jenis_turbin = $input['mesin_jenis_turbin'];
-        $laporan->mesin_merek_pembuat = $input['mesin_merek_pembuat'];
-        $laporan->mesin_negara_pembuat = $input['mesin_negara_pembuat'];
-        $laporan->mesin_tahun_pembuatan = $input['mesin_tahun_pembuatan'];
-        $laporan->mesin_tipe_seri_mesin = $input['mesin_tipe_seri_mesin'];
-        $laporan->mesin_kapasitas = $input['mesin_kapasitas'];
-        $laporan->generator_merek_pembuat = $input['generator_merek_pembuat'];
-        $laporan->generator_negara_pembuat = $input['generator_negara_pembuat'];
-        $laporan->generator_tahun_pembuatan = $input['generator_tahun_pembuatan'];
-        $laporan->generator_tipe_seri_mesin = $input['generator_tipe_seri_mesin'];
-        $laporan->generator_kapasitas = $input['generator_kapasitas'];
-        $laporan->generator_fasa = $input['generator_fasa'];
-        $laporan->generator_frekuensi = $input['generator_frekuensi'];
-        $laporan->generator_tegangan = $input['generator_tegangan'];
-        $laporan->generator_arus = $input['generator_arus'];
-        $laporan->generator_power_factor = $input['generator_power_factor'];
-        $laporan->generator_daya = $input['generator_daya'];
+        $laporan->pembangkit_id = $input['pembangkit_id'];
+        $laporan->jenis_bahan_bakar = $input['jenis_bahan_bakar'];
+        $laporan->konsumsi_bahan_bakar = $input['konsumsi_bahan_bakar'];
+        $laporan->jenis_pelumas = $input['jenis_pelumas'];
+        $laporan->konsumsi_pelumas = $input['konsumsi_pelumas'];
+        $laporan->waktu_operasi_mesin = $input['waktu_operasi_mesin'];
+        $laporan->produksi_listrik = $input['produksi_listrik'];
+        $laporan->jumlah_kerusakan = $input['jumlah_kerusakan'];
+        $laporan->sambungan_badan_usaha = $input['sambungan_badan_usaha'];
+        $laporan->sambungan_in_out = $input['sambungan_in_out'];
+        $laporan->sambungan_rata_rata = $input['sambungan_rata_rata'];
+        $laporan->sambungan_cara_distribusi = $input['sambungan_cara_distribusi'];
         return $laporan;
     }
 
