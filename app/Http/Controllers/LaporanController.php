@@ -30,7 +30,7 @@ class LaporanController extends Controller
     public function add(Request $request)
     {
         if ($this->payment->add($request)) {
-           return redirect('admin/pembayaran')->with('message', 'Berhasil Disimpan');
+           return redirect('laporan')->with('message', 'Berhasil Disimpan');
        }
     }
 
@@ -45,7 +45,7 @@ class LaporanController extends Controller
     public function update(Request $request)
     {
         if ($this->payment->update($request)) {
-           return redirect('admin/pembayaran')->with('message', 'Berhasil Disimpan');
+           return redirect('laporan')->with('message', 'Berhasil Disimpan');
        }
     }
 

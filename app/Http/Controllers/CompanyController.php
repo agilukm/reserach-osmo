@@ -14,9 +14,12 @@ class CompanyController extends Controller
         $this->service = $service;
     }
 
-    public function index(Request $request)
+    public function browse(Request $request)
     {
-        $data = $this->service->browse($request);
+        $data = [
+            'companies' => $this->service->browse($request)
+        ];
+
 
         return View('admin.companies.index', $data);
     }
@@ -29,23 +32,23 @@ class CompanyController extends Controller
 
     public function add(Request $request)
     {
-        if ($this->payment->add($request)) {
-           return redirect('admin/pembayaran')->with('message', 'Berhasil Disimpan');
+        if ($this->service->add($request)) {
+           return redirect('perusahaan')->with('message', 'Berhasil Disimpan');
        }
     }
 
-    public function edit(Request $request, $id)
+    public function read(Request $request, $id)
     {
         $data = [
-            "company" => $this->service->get()
+            "company" => $this->service->get($id)
         ];
         return View('admin.companies.edit', $data);
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        if ($this->payment->update($request)) {
-           return redirect('admin/pembayaran')->with('message', 'Berhasil Disimpan');
+        if ($this->service->update($request, $id)) {
+           return redirect('perusahaan')->with('message', 'Berhasil Disimpan');
        }
     }
 
