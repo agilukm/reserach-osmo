@@ -19,7 +19,7 @@
 
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <div class="panel-title">Tambah Data Perusahaan</div>
+                    <div class="panel-title">Tambah Data SKTTK Perusahaan</div>
                 </div>
                 <div class="panel-body">
 
@@ -38,47 +38,6 @@
                         <div class="form-group">
                             <label class="control-label">Email</label>
                             <input type="email" required class="form-control" name="email" placeholder="Email Perusahaan">
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label">Kabupaten / Kota</label>
-
-                            <input type="text" class="form-control" name="kota" placeholder="Kabupaten / Kota">
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label">Nomor Pertek</label>
-
-                            <input type="text" class="form-control" name="nomor_pertek" placeholder="Nomor Pertek Perusahaan">
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label">Tanggal Pertek</label>
-                            <input type="text" required class="form-control daterangepickerz" name="tgl_pertek">
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label">Nomor DPMPTSP</label>
-
-                            <input type="text" required class="form-control daterangepickerz" name="nomor_dpmptsp">
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label">Tanggal Terbit</label>
-
-                            <input type="text" class="form-control daterangepickerz" name="tgl_terbit">
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label">Tanggal Berlaku</label>
-
-                            <input type="text" class="form-control daterangepickerz" name="tgl_berlaku" >
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label">Tanggal Berakhir</label>
-
-                            <input type="text" class="form-control daterangepickerz" name="tgl_berakhir">
                         </div>
 
                         <div class="form-group">

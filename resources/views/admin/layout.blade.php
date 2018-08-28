@@ -13,7 +13,7 @@
 
     <title>E-OSMOSYS</title>
     <script type="text/javascript">
-        var site_url = '{{ url('/') }}';
+    var site_url = '{{ url('/') }}';
     </script>
     <link rel="stylesheet" href="{{ url('/') }}/assets/dist/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css">
     <link rel="stylesheet" href="{{ url('/') }}/assets/dist/css/font-icons/entypo/css/entypo.css">
@@ -71,140 +71,140 @@
 <body class="page-body  page-fade" data-url="http://neon.dev">
 
 
-<div class="page-container"><!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
+    <div class="page-container"><!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
 
-    <div class="sidebar-menu">
+        <div class="sidebar-menu">
 
-        <div class="sidebar-menu-inner">
+            <div class="sidebar-menu-inner">
 
-            <header class="logo-env">
+                <header class="logo-env">
 
-                <!-- logo -->
-                <div class="logo">
-                    <a href="#">
-                        <h2><strong>E-OSMOSYS</strong></h2>
-                    </a>
-                </div>
-
-                <!-- logo collapse icon -->
-                <div class="sidebar-collapse">
-                    <a href="#" class="sidebar-collapse-icon"><!-- add class "with-animation" if you want sidebar to have animation during expanding/collapsing transition -->
-                        <i class="entypo-menu"></i>
-                    </a>
-                </div>
-
-
-                <!-- open/close menu icon (do not remove if you want to enable menu on mobile devices) -->
-                <div class="sidebar-mobile-menu visible-xs">
-                    <a href="#" class="with-animation"><!-- add class "with-animation" to support animation -->
-                        <i class="entypo-menu"></i>
-                    </a>
-                </div>
-
-            </header>
-
-
-            <ul id="main-menu" class="main-menu">
-                <!-- add class "multiple-expanded" to allow multiple submenus to open -->
-                <!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
-
-                        <li class="header">MENU</li>
-
-                        <li>
-                            <a href="{{ url('/') }}"><i class="fa fa-dashboard"></i><span>Dashboard</span></a>
-                        </li>
-
-                        <li>
-                            <a href="{{ url('/') }}/perusahaan"><i class="fa fa-desktop" aria-hidden="true"></i> <span>Perusahaan</span></a>
-                        </li>
-                        <li>
-                            <a href="{{ url('/') }}/skttk"><i class="fa fa-user" aria-hidden="true"></i> <span>Skttk</span></a>
-                        </li>
-
-                        <li>
-                            <a href="{{ url('/') }}/pembangkit"><i class="fa fa-cogs" aria-hidden="true"></i> <span>Pembangkit</span></a>
-                        </li>
-
-                        <li>
-                            <a href="{{ url('/') }}/laporan"><i class="fa fa-file" aria-hidden="true"></i> <span>Laporan</span></a>
-                        </li>
-
-
-            </ul>
-
-        </div>
-
-    </div>
-<div class="main-content">
-
-        <div class="row">
-
-            <!-- Profile Info and Notifications -->
-            <div class="col-md-6 col-sm-8 clearfix">
-
-                <ul class="user-info pull-left pull-none-xsm">
-
-                    <!-- Profile Info -->
-                    <li class="profile-info dropdown"><!-- add class "pull-right" if you want to place this from right -->
-
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="{{ url('/') }}/assets/favicon.png" alt="" class="img-circle" width="44" />
-                            <?php //echo $_SESSION["nama"] ?>
+                    <!-- logo -->
+                    <div class="logo">
+                        <a href="#">
+                            <h2><strong>E-OSMOSYS</strong></h2>
                         </a>
-                        <strong> {{Auth::user()->name}} </strong>
-                        <ul class="dropdown-menu">
+                    </div>
 
-                            <!-- Reverse Caret -->
-                            <li class="caret"></li>
+                    <!-- logo collapse icon -->
+                    <div class="sidebar-collapse">
+                        <a href="#" class="sidebar-collapse-icon"><!-- add class "with-animation" if you want sidebar to have animation during expanding/collapsing transition -->
+                            <i class="entypo-menu"></i>
+                        </a>
+                    </div>
 
-                            <!-- Profile sub-links -->
-                            <li>
-                                <a href="Password">
-                                    <i class="entypo-user"></i>
-                                    Ganti Password
-                                </a>
-                            </li>
-                        </ul>
+
+                    <!-- open/close menu icon (do not remove if you want to enable menu on mobile devices) -->
+                    <div class="sidebar-mobile-menu visible-xs">
+                        <a href="#" class="with-animation"><!-- add class "with-animation" to support animation -->
+                            <i class="entypo-menu"></i>
+                        </a>
+                    </div>
+
+                </header>
+
+
+                <ul id="main-menu" class="main-menu">
+                    <!-- add class "multiple-expanded" to allow multiple submenus to open -->
+                    <!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
+
+                    <li class="header">MENU</li>
+
+                    <li>
+                        <a href="{{ url('/') }}"><i class="fa fa-dashboard"></i><span>Dashboard</span></a>
                     </li>
+
+                    <li>
+                        <a href="{{ url('/') }}/perusahaan"><i class="fa fa-desktop" aria-hidden="true"></i> <span>Perusahaan</span></a>
+                    </li>
+                    <li>
+                        <a href="{{ url('/') }}/skttk"><i class="fa fa-user" aria-hidden="true"></i> <span>Skttk</span></a>
+                    </li>
+
+                    <li>
+                        <a href="{{ url('/') }}/pembangkit"><i class="fa fa-cogs" aria-hidden="true"></i> <span>Pembangkit</span></a>
+                    </li>
+
+                    <li>
+                        <a href="{{ url('/') }}/laporan"><i class="fa fa-file" aria-hidden="true"></i> <span>Laporan</span></a>
+                    </li>
+
 
                 </ul>
 
-
-
             </div>
 
+        </div>
+        <div class="main-content">
 
-            <!-- Raw Links -->
-            <div class="col-md-6 col-sm-4 clearfix hidden-xs">
+            <div class="row">
 
-                <ul class="list-inline links-list pull-right">
+                <!-- Profile Info and Notifications -->
+                <div class="col-md-6 col-sm-8 clearfix">
 
-                    <!-- Language Selector -->
+                    <ul class="user-info pull-left pull-none-xsm">
+
+                        <!-- Profile Info -->
+                        <li class="profile-info dropdown"><!-- add class "pull-right" if you want to place this from right -->
+
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="{{ url('/') }}/assets/favicon.png" alt="" class="img-circle" width="44" />
+                                <?php //echo $_SESSION["nama"] ?>
+                            </a>
+                            <strong> {{Auth::user()->name}} </strong>
+                            <ul class="dropdown-menu">
+
+                                <!-- Reverse Caret -->
+                                <li class="caret"></li>
+
+                                <!-- Profile sub-links -->
+                                <li>
+                                    <a href="Password">
+                                        <i class="entypo-user"></i>
+                                        Ganti Password
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
 
 
-                    <li class="sep"></li>
 
-                    <li>
-                        <a href="Password">
-                            <i class="entypo-user"></i>
-                            Ganti Password
-                        </a>
-                    </li>
+                </div>
 
 
-                    <li class="sep">
+                <!-- Raw Links -->
+                <div class="col-md-6 col-sm-4 clearfix hidden-xs">
 
-                    </li>
+                    <ul class="list-inline links-list pull-right">
 
-                    <li>
-                        <a href="{{ url('/logout') }}" onclick="event.preventDefault();
-                                      document.getElementById('logout-form').submit();">
+                        <!-- Language Selector -->
+
+
+                        <li class="sep"></li>
+
+                        <li>
+                            <a href="Password">
+                                <i class="entypo-user"></i>
+                                Ganti Password
+                            </a>
+                        </li>
+
+
+                        <li class="sep">
+
+                        </li>
+
+                        <li>
+                            <a href="{{ url('/logout') }}" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
                             Log Out <i class="entypo-logout right"></i>
                         </a>
 
-                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                         @csrf
-                     </form>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     </li>
                 </ul>
 
@@ -257,66 +257,66 @@
 
     <script type="text/javascript">
 
-        $('.daterangepickerz').daterangepicker({
-            singleDatePicker: true
-        });
+    $('.daterangepickerz').daterangepicker({
+        singleDatePicker: true
+    });
 
-        var table = $('#myTable').DataTable();
-        $('select').select2({
-            language: "id",
-            placeholder: "Pilih",
-            allowclear: true
-        });
+    var table = $('#myTable').DataTable();
+    $('select').select2({
+        language: "id",
+        placeholder: "Pilih",
+        allowclear: true
+    });
 
-        $('.conf').click( function() {
-            console.log($('#value'+this.id).val(), this.id, this.name);
-            var conf = confirm($('#value'+this.id).val(), this.id, this.name);
-        });
+    $('.conf').click( function() {
+        console.log($('#value'+this.id).val(), this.id, this.name);
+        var conf = confirm($('#value'+this.id).val(), this.id, this.name);
+    });
 
-        function confirm(uri, id, name){
-            swal({
-                title: "Data akan di"+name,
-                text: "Apakah anda yakin?",
-                type: "warning",
-                showCancelButton: true,
-                closeOnConfirm: false,
-                confirmButtonText: "Yakin",
-                cancelButtonText: "Batal",
-                confirmButtonColor: "#ec6c62"
-            }, function (isConfirm) {
-                if (!isConfirm) return;
-                table.row($('.'+id)).remove().draw( false );
-                    $.ajax({
-                        url: uri,
-                        type: "DELETE",
-                        dataType: "html",
-                        success: function () {
-                            var asd = table.row($('.'+id)).remove().draw( false );
-                            if(asd)
-                            {
-                                swal("Behasil!", "Data berhasil di"+name, "success");
-                            }
-                        },
+    function confirm(uri, id, name){
+        swal({
+            title: "Data akan di"+name,
+            text: "Apakah anda yakin?",
+            type: "warning",
+            showCancelButton: true,
+            closeOnConfirm: false,
+            confirmButtonText: "Yakin",
+            cancelButtonText: "Batal",
+            confirmButtonColor: "#ec6c62"
+        }, function (isConfirm) {
+            if (!isConfirm) return;
+            table.row($('.'+id)).remove().draw( false );
+            $.ajax({
+                url: uri,
+                type: "DELETE",
+                dataType: "html",
+                success: function () {
+                    var asd = table.row($('.'+id)).remove().draw( false );
+                    if(asd)
+                    {
+                        swal("Behasil!", "Data berhasil di"+name, "success");
+                    }
+                },
 
-                        error: function (xhr, ajaxOptions, thrownError) {
-                                swal("Behasil!", "Data berhasil di"+name, "success");
-                        }
-                    });
+                error: function (xhr, ajaxOptions, thrownError) {
+                    swal("Behasil!", "Data berhasil di"+name, "success");
+                }
             });
-        }
+        });
+    }
     </script>
 
     @if(session()->has('message'))
     <script type="text/javascript">
-        swal("Behasil!", "{{ session()->get('message') }}", "success", 3000, false);
+    swal("Behasil!", "{{ session()->get('message') }}", "success", 3000, false);
     </script>
     @endif
 
     @if($errors->any())
     <script type="text/javascript">
-        $(window).on('load',function(){
-            $('#errormodal').modal('show');
-        });
+    $(window).on('load',function(){
+        $('#errormodal').modal('show');
+    });
     </script>
     @endif
 

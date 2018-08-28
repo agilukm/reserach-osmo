@@ -12,7 +12,7 @@
     <link rel="icon" href="{{ url('/') }}/assets/logo_upi75.png">
 
     <title>E-OSMOSYS | Login</title>
-
+    
     <link rel="stylesheet" href="{{ url('/') }}/assets/login/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css">
     <link rel="stylesheet" href="{{ url('/') }}/assets/login/css/font-icons/entypo/css/entypo.css">
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic">
@@ -29,8 +29,8 @@
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
 
@@ -38,10 +38,10 @@
 <body class="page-body login-page login-form-fall" data-url="http://neon.dev">
 
 
-<!-- This is needed when you send requests via Ajax -->
-<script type="text/javascript">
-var baseurl = '{{url('/')}}';
-var loginUrl = '{{ route('login') }}';
+    <!-- This is needed when you send requests via Ajax -->
+    <script type="text/javascript">
+    var baseurl = '{{url('/')}}';
+    var loginUrl = '{{ route('login') }}';
 </script>
 
 <div class="login-container">
@@ -52,10 +52,10 @@ var loginUrl = '{{ route('login') }}';
 
             <a href="#" class="logo">
 
-            <p style="font-size:32px;"><B><STRONG></STRONG></B></p>
+                <p style="font-size:32px;"><B><STRONG></STRONG></B></p>
             </a>
             <center>
-                 <img src="{{ url('/') }}/assets/Untitled-1.png" width="300px">
+                <img src="{{ url('/') }}/assets/Untitled-1.png" width="300px">
             </center>
             <p class="description">Silahkan Login terlebih dahulu!</p>
 
@@ -118,33 +118,33 @@ var loginUrl = '{{ route('login') }}';
 </div>
 
 
-    <!-- Bottom scripts (common) -->
-    <script src="{{ url('/') }}/assets/login/js/gsap/TweenMax.min.js"></script>
-    <script src="{{ url('/') }}/assets/login/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js"></script>
-    <script src="{{ url('/') }}/assets/login/js/bootstrap.js"></script>
-    <script src="{{ url('/') }}/assets/login/js/joinable.js"></script>
-    <script src="{{ url('/') }}/assets/login/js/resizeable.js"></script>
-    <script src="{{ url('/') }}/assets/login/js/neon-api.js"></script>
-    <script src="{{ url('/') }}/assets/login/js/jquery.validate.min.js"></script>
-    <script src="{{ url('/') }}/assets/login/js/neon-login.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.0.5/sweetalert2.all.js"></script>
+<!-- Bottom scripts (common) -->
+<script src="{{ url('/') }}/assets/login/js/gsap/TweenMax.min.js"></script>
+<script src="{{ url('/') }}/assets/login/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js"></script>
+<script src="{{ url('/') }}/assets/login/js/bootstrap.js"></script>
+<script src="{{ url('/') }}/assets/login/js/joinable.js"></script>
+<script src="{{ url('/') }}/assets/login/js/resizeable.js"></script>
+<script src="{{ url('/') }}/assets/login/js/neon-api.js"></script>
+<script src="{{ url('/') }}/assets/login/js/jquery.validate.min.js"></script>
+<script src="{{ url('/') }}/assets/login/js/neon-login.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.0.5/sweetalert2.all.js"></script>
 
 
-    <!-- JavaScripts initializations and stuff -->
-    <script src="{{ url('/') }}/assets/login/js/neon-custom.js"></script>
+<!-- JavaScripts initializations and stuff -->
+<script src="{{ url('/') }}/assets/login/js/neon-custom.js"></script>
 
 
-    <!-- Demo Settings -->
-    <script src="{{ url('/') }}/assets/login/js/neon-demo.js"></script>
-    @if ($errors->has('email') || $errors->has('password'))
-    <script type="text/javascript">
-        swal({
-          title: 'Error!',
-          text: 'Username / Password Salah',
-          type: 'error',
-          confirmButtonText: 'Cool'
-        });
-    </script>
-    @endif
+<!-- Demo Settings -->
+<script src="{{ url('/') }}/assets/login/js/neon-demo.js"></script>
+@if ($errors->has('email') || $errors->has('password'))
+<script type="text/javascript">
+swal({
+    title: 'Error!',
+    text: 'Username / Password Salah',
+    type: 'error',
+    confirmButtonText: 'Cool'
+});
+</script>
+@endif
 </body>
 </html>
