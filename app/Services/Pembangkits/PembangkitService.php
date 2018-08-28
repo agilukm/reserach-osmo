@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Pembangkit;
+namespace App\Services\Pembangkits;
 
 use QueryBuilder;
 
@@ -26,7 +26,7 @@ class PembangkitService
 
     public function add($input)
     {
-        $data = $this->fill($input);
+        $data = $this->fill($this->model, $input);
         $data->save();
         return $data;
     }
@@ -34,7 +34,7 @@ class PembangkitService
     public function update($input, $id)
     {
         $query = $this->get($id);
-        $data = $this->fill($input);
+        $data = $this->fill($query, $input);
         $query->fill($data->toArray());
         $query->save();
         return $query;

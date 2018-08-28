@@ -4,7 +4,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Perusahaan
+        SKTTK
     </h1>
 </section>
 
@@ -23,21 +23,50 @@
                 </div>
                 <div class="panel-body">
 
-                    <form role="form" id="form1" action="{{url('/perusahaan')}}" method="post" class="validate">
+                    <form role="form" id="form1" action="{{url('/skttk')}}" method="post" class="validate">
 
                         <div class="form-group">
                             <label class="control-label">Nama Perusahaan</label>
-                            <input type="text" required class="form-control" name="nama" placeholder="Nama Perusahaan">
+                            <select class="form-control" name="company_id" required>
+                                @foreach($companies as $key => $company)
+                                    <option value="{{$company->id}}">{{$company->nama}}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Alamat Perusahaan</label>
-                            <input type="alamat" required class="form-control" name="alamat"  placeholder="Alamat Perusahaan">
+                            <label class="control-label">Nama Tenaga Kerja</label>
+                            <input type="text" required class="form-control" name="nama"  placeholder="Nama Tenaga Kerja">
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Email</label>
-                            <input type="email" required class="form-control" name="email" placeholder="Email Perusahaan">
+                            <label class="control-label">Penerbit</label>
+                            <input type="text" required class="form-control" name="penerbit" placeholder="Penerbit">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">Nomor</label>
+                            <input type="text" required class="form-control" name="nomor" placeholder="Nomor">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">Tanggal</label>
+                            <input type="text" required class="form-control daterangepickerz" name="tanggal" placeholder="Tanggal">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">Bidang</label>
+                            <input type="text" required class="form-control" name="bidang" placeholder="Bidang">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">Level</label>
+                            <input type="text" required class="form-control" name="level" placeholder="Level">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">Keterangan</label>
+                            <input type="text" required class="form-control" name="ket" placeholder="Keterangan">
                         </div>
 
                         <div class="form-group">

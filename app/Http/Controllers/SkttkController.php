@@ -4,48 +4,57 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\Skttks\SkttkService;
+use App\Services\Companies\CompanyService;
 
 class SkttkController extends Controller
 {
     protected $service;
+    protected $company;
 
-    public function __construct(SkttkService $service)
+    public function __construct(SkttkService $service, CompanyService $company)
     {
         $this->service = $service;
+        $this->company = $company;
     }
 
-    public function index(Request $request)
+    public function browse(Request $request)
     {
-        $data = $this->service->browse($request);
+        $data = [
+            "skttks" => $this->service->browse($request),
+            "companies" => $this->company->browse($request)
+        ];
 
         return View('admin.skttks.index', $data);
     }
 
     public function input(Request $request)
     {
-        $data = array();
+        $data = array(
+            "companies" => $this->company->browse($request)
+        );
         return View('admin.skttks.add', $data);
     }
 
     public function add(Request $request)
     {
-        if ($this->payment->add($request)) {
-           return redirect('admin/pembayaran')->with('message', 'Berhasil Disimpan');
+        if ($this->service->add($request)) {
+           return redirect('skttk')->with('message', 'Berhasil Disimpan');
        }
     }
 
-    public function edit(Request $request, $id)
+    public function read(Request $request, $id)
     {
         $data = [
-            "company" => $this->service->get()
+            "skttk" => $this->service->get($id),
+            "companies" => $this->company->browse($request)
         ];
         return View('admin.skttks.edit', $data);
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        if ($this->payment->update($request)) {
-           return redirect('admin/pembayaran')->with('message', 'Berhasil Disimpan');
+        if ($this->service->update($request, $id)) {
+           return redirect('skttk')->with('message', 'Berhasil Disimpan');
        }
     }
 

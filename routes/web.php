@@ -26,3 +26,19 @@ Route::group(['prefix' => 'perusahaan'], function() {
     Route::patch('/{id}', 'CompanyController@update')->name('Company_edit');
     Route::delete('/{id}', 'CompanyController@delete')->name('Company_delete');
 });
+Route::group(['prefix' => 'skttk'], function() {
+    Route::get('/', 'SkttkController@browse')->name('Skttk_index');
+    Route::get('/tambah', 'SkttkController@input')->name('Skttk_input');
+    Route::post('/', 'SkttkController@add')->name('Skttk_save');
+    Route::get('/{id}', 'SkttkController@read')->name('Skttk_read');
+    Route::patch('/{id}', 'SkttkController@update')->name('Skttk_edit');
+    Route::delete('/{id}', 'SkttkController@delete')->name('Skttk_delete');
+});
+Route::group(['prefix' => 'pembangkit'], function() {
+    Route::get('/', 'PembangkitController@browse')->name('Pembangkit_index');
+    Route::get('/tambah', 'PembangkitController@input')->name('Pembangkit_input');
+    Route::post('/', 'PembangkitController@add')->name('Pembangkit_save');
+    Route::get('/{id}', 'PembangkitController@read')->name('Pembangkit_read');
+    Route::patch('/{id}', 'PembangkitController@update')->name('Pembangkit_edit');
+    Route::delete('/{id}', 'PembangkitController@delete')->name('Pembangkit_delete');
+});

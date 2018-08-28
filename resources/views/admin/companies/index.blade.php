@@ -46,8 +46,8 @@
                                     <div class="dropdown">
                                         <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
                                         <ul class="dropdown-menu">
-                                            <li> <a href="{{url('/perusahaan/').$company->id}}"> <i class="glyphicon glyphicon-info-sign"></i> Edit</a></center></li>
-                                            <input type="hidden" name=""  value="{{url('/perusahaan/'.$company->id)}}" id="value{{$key}}">
+                                            <li> <a href="{{url('/perusahaan/')}}/{{$company->id}}"> <i class="glyphicon glyphicon-info-sign"></i> Edit</a></center></li>
+                                            <input type="hidden" name=""  value="{{url('/perusahaan/')}}/{{.$company->id}}" id="value{{$key}}">
                                             <li> <a name="hapus" id="{{$key}}" class="conf"><i class="glyphicon glyphicon-info-sign"></i>  Hapus</a></center></li>
                                         </ul>
                                     </div>

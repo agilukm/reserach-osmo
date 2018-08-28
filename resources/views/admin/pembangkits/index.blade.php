@@ -4,10 +4,10 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        SKTTK
+        PEMBANGKIT
     </h1>
     <div class="float-right" style="float: right;">
-        <a href="{{url('/skttk/tambah')}}"> <button type="button" class="btn btn-danger">Tambah</button> </a>
+        <a href="{{url('/pembangkit/tambah')}}"> <button type="button" class="btn btn-danger">Tambah</button> </a>
     </div>
     <br>
     <br>
@@ -30,39 +30,37 @@
                             <tr>
                                 <th>No.</th>
                                 <th>Nama Perusahaan</th>
-                                <th>Nama Tenaga Kerja</th>
-                                <th>Penerbit</th>
-                                <th>Nomor</th>
-                                <th>Tanggal</th>
-                                <th>Bidang</th>
-                                <th>Level</th>
+                                <th>Tanggal Berlaku</th>
+                                <th>Tanggal Berakhir</th>
+                                <th>No Sertifikat</th>
+                                <th>No Registrasi</th>
+                                <th>Tahun Pembuatan</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($skttks as $key => $skttk)
+                            @foreach($pembangkits as $key => $pembangkit)
                             <tr class="{{$key}}">
                                 <td>{{$key+1}}</td>
-                                <td>{{$skttk->company->nama}}</td>
-                                <td>{{$skttk->nama}}</td>
-                                <td>{{$skttk->penerbit}}</td>
-                                <td>{{$skttk->nomor}}</td>
-                                <td>{{$skttk->tanggal}}</td>
-                                <td>{{$skttk->bidang}}</td>
-                                <td>{{$skttk->level}}</td>
+                                <td>{{$pembangkit->company->nama}}</td>
+                                <td>{{$pembangkit->tgl_berlaku}}</td>
+                                <td>{{$pembangkit->tgl_berakhir}}</td>
+                                <td>{{$pembangkit->no_sertifikat}}</td>
+                                <td>{{$pembangkit->no_registrasi}}</td>
+                                <td>{{$pembangkit->tahun_pembuatan}}</td>
                                 <td>
                                     <div class="dropdown">
                                         <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
                                         <ul class="dropdown-menu">
-                                            <li> <a href="{{url('/skttk/')}}/{{$skttk->id}}"> <i class="glyphicon glyphicon-info-sign"></i> Edit</a></center></li>
-                                            <input type="hidden" name=""  value="{{url('/skttk/')}}/{{$skttk->id}}" id="value{{$key}}">
+                                            <li> <a href="{{url('/pembangkit/')}}/{{$pembangkit->id}}"> <i class="glyphicon glyphicon-info-sign"></i> Edit</a></center></li>
+                                            <input type="hidden" name=""  value="{{url('/pembangkit/')}}/{{$pembangkit->id}}" id="value{{$key}}">
                                             <li> <a name="hapus" id="{{$key}}" class="conf"><i class="glyphicon glyphicon-info-sign"></i>  Hapus</a></center></li>
                                         </ul>
                                     </div>
                                 </td>
                             </tr>
                             <!-- /.row -->
-                            <div class="modal fade custom-width" id="ModalFormat{{$skttk->id}}"  tabindex="-1" role="dialog" aria-labelledby="ModalFormat" aria-hidden="true">
+                            <div class="modal fade custom-width" id="ModalFormat{{$pembangkit->id}}"  tabindex="-1" role="dialog" aria-labelledby="ModalFormat" aria-hidden="true">
                                 <div class="modal-dialog" style="width: 96%">
                                     <div class="modal-content">
                                     </div>

@@ -4,7 +4,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Perusahaan
+        SKTTK
     </h1>
 </section>
 
@@ -19,67 +19,54 @@
 
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <div class="panel-title">Edit Data Perusahaan</div>
+                    <div class="panel-title">Edit Data SKTTK Perusahaan</div>
                 </div>
                 <div class="panel-body">
 
-                    <form role="form" id="form1" action="{{url('/perusahaan')}}/{{$company->id}}" method="post" class="validate">
+                    <form role="form" id="form1" action="{{url('/skttk/'.$skttk->id)}}" method="post" class="validate">
                         {{ method_field('PATCH') }}
                         <div class="form-group">
                             <label class="control-label">Nama Perusahaan</label>
-                            <input type="hidden" required class="form-control" name="_method" placeholder="Nama Perusahaan" value="patch">
-                            <input type="text" required class="form-control" name="nama" placeholder="Nama Perusahaan" value="{{$company->nama}}">
+                            <select required class="form-control" name="company_id">
+                                @foreach($companies as $key => $company)
+                                    <option value="{{$company->id}}" @if($skttk->company_id == $company->id) selected @endif>{{$company->nama}}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Alamat Perusahaan</label>
-                            <input type="alamat" required class="form-control" name="alamat"  placeholder="Alamat Perusahaan"  value="{{$company->alamat}}">
+                            <label class="control-label">Nama Tenaga Kerja</label>
+                            <input type="text" required class="form-control" name="nama"  placeholder="Nama Tenaga Kerja" value="{{$skttk->nama}}">
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Email</label>
-                            <input type="email" required class="form-control" name="email" placeholder="Email Perusahaan"  value="{{$company->email}}">
+                            <label class="control-label">Penerbit</label>
+                            <input type="text" required class="form-control" name="penerbit" placeholder="Penerbit" value="{{$skttk->penerbit}}">
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Kabupaten / Kota</label>
-
-                            <input type="text" class="form-control" name="kota" placeholder="Kabupaten / Kota"  value="{{$company->kota}}">
+                            <label class="control-label">Nomor</label>
+                            <input type="text" required class="form-control" name="nomor" placeholder="Nomor" value="{{$skttk->nomor}}">
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Nomor Pertek</label>
-
-                            <input type="text" class="form-control" name="nomor_pertek" placeholder="Nomor Pertek Perusahaan"  value="{{$company->nomor_pertek}}">
+                            <label class="control-label">Tanggal</label>
+                            <input type="text" required class="form-control daterangepickerz" name="tanggal" placeholder="Tanggal" value="{{$skttk->tanggal}}">
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Tanggal Pertek</label>
-                            <input type="text" required class="form-control daterangepickerz" name="tgl_pertek"  value="{{$company->tgl_pertek}}">
+                            <label class="control-label">Bidang</label>
+                            <input type="text" required class="form-control" name="bidang" placeholder="Bidang" value="{{$skttk->bidang}}">
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Nomor DPMPTSP</label>
-
-                            <input type="text" required class="form-control daterangepickerz" name="nomor_dpmptsp"  value="{{$company->nomor_dpmptsp}}">
+                            <label class="control-label">Level</label>
+                            <input type="text" required class="form-control" name="level" placeholder="Level" value="{{$skttk->level}}">
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">Tanggal Terbit</label>
-
-                            <input type="text" class="form-control daterangepickerz" name="tgl_terbit"  value="{{$company->tgl_terbit}}">
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label">Tanggal Berlaku</label>
-
-                            <input type="text" class="form-control daterangepickerz" name="tgl_berlaku"  value="{{$company->tgl_berlaku}}">
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label">Tanggal Berakhir</label>
-
-                            <input type="text" class="form-control daterangepickerz" name="tgl_berakhir"  value="{{$company->tgl_berakhir}}">
+                            <label class="control-label">Keterangan</label>
+                            <input type="text" required class="form-control" name="ket" placeholder="Keterangan" value="{{$skttk->ket}}">
                         </div>
 
                         <div class="form-group">

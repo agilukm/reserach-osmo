@@ -11,6 +11,6 @@ class Skttk extends Model
 
     public function company()
     {
-        return $this->belongsTo(\App\Services\Companies\Company::class, 'company_id');
+        return $this->belongsTo(\App\Services\Companies\Companies::class, 'company_id');
     }
 }
