@@ -4,10 +4,10 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        PEMBANGKIT
+        Laporan
     </h1>
     <div class="float-right" style="float: right;">
-        <a href="{{url('/pembangkit/tambah')}}"> <button type="button" class="btn btn-danger">Tambah</button> </a>
+        <a href="{{url('/laporan/tambah')}}"> <button type="button" class="btn btn-danger">Tambah</button> </a>
     </div>
     <br>
     <br>
@@ -29,38 +29,32 @@
                         <thead>
                             <tr>
                                 <th>No.</th>
-                                <th>Nama Perusahaan</th>
-                                <th>Tanggal Berlaku</th>
-                                <th>Tanggal Berakhir</th>
-                                <th>No Sertifikat</th>
-                                <th>No Registrasi</th>
-                                <th>Tahun Pembuatan</th>
+                                <th>Nama laporan</th>
+                                <th>No. Sertifikat Pembangkit</th>
+                                <th>Waktu Laporan</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($pembangkits as $key => $pembangkit)
+                            @foreach($laporans as $key => $laporan)
                             <tr class="{{$key}}">
                                 <td>{{$key+1}}</td>
-                                <td>{{$pembangkit->company->nama}}</td>
-                                <td>{{$pembangkit->tgl_berlaku}}</td>
-                                <td>{{$pembangkit->tgl_berakhir}}</td>
-                                <td>{{$pembangkit->no_sertifikat}}</td>
-                                <td>{{$pembangkit->no_registrasi}}</td>
-                                <td>{{$pembangkit->tahun_pembuatan}}</td>
+                                <td>{{$laporan->pembangkit->company->nama}}</td>
+                                <td>{{$laporan->pembangkit->no_sertifikat}}</td>
+                                <td>{{$laporan->created_at}}</td>
                                 <td>
                                     <div class="dropdown">
                                         <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
                                         <ul class="dropdown-menu">
-                                            <li> <a href="{{url('/pembangkit/')}}/{{$pembangkit->id}}"> <i class="glyphicon glyphicon-info-sign"></i> Detail</a></center></li>
-                                            <input type="hidden" name=""  value="{{url('/pembangkit/')}}/{{$pembangkit->id}}" id="value{{$key}}">
-                                            <li> <a name="hapus" id="{{$key}}" class="conf"><i class="glyphicon glyphicon-info-sign"></i>  Hapus</a></center></li>
+                                            <li> <a href="{{url('/laporan/')}}/{{$laporan->id}}"> <i class="glyphicon glyphicon-info-sign"></i> Edit</a></center></li>
+                                            <input type="hidden" name=""  value="{{url('/laporan/')}}/{{$laporan->id}}" id="value{{$key}}">
+                                            <li> <a href="#" name="hapus" id="{{$key}}" class="conf"><i class="glyphicon glyphicon-info-sign"></i>  Hapus</a></center></li>
                                         </ul>
                                     </div>
                                 </td>
                             </tr>
                             <!-- /.row -->
-                            <div class="modal fade custom-width" id="ModalFormat{{$pembangkit->id}}"  tabindex="-1" role="dialog" aria-labelledby="ModalFormat" aria-hidden="true">
+                            <div class="modal fade custom-width" id="ModalFormat{{$laporan->id}}"  tabindex="-1" role="dialog" aria-labelledby="ModalFormat" aria-hidden="true">
                                 <div class="modal-dialog" style="width: 96%">
                                     <div class="modal-content">
                                     </div>

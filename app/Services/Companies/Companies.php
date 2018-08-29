@@ -3,7 +3,6 @@
 namespace App\Services\Companies;
 
 use Illuminate\Database\Eloquent\Model;
-use Gency\Filterable\Filterable;
 
 class Companies extends Model
 {
@@ -18,6 +17,6 @@ class Companies extends Model
     }
     public function skttks()
     {
-        return $this->hasMany(\App\Services\Skttk\Skttk::class, 'company_id');
+        return $this->hasMany(\App\Services\Skttks\Skttk::class, 'company_id');
     }
 }

@@ -42,3 +42,11 @@ Route::group(['prefix' => 'pembangkit'], function() {
     Route::patch('/{id}', 'PembangkitController@update')->name('Pembangkit_edit');
     Route::delete('/{id}', 'PembangkitController@delete')->name('Pembangkit_delete');
 });
+Route::group(['prefix' => 'laporan'], function() {
+    Route::get('/', 'LaporanController@browse')->name('Laporan_index');
+    Route::get('/tambah', 'LaporanController@input')->name('Laporan_input');
+    Route::post('/', 'LaporanController@add')->name('Laporan_save');
+    Route::get('/{id}', 'LaporanController@read')->name('Laporan_read');
+    Route::patch('/{id}', 'LaporanController@update')->name('Laporan_edit');
+    Route::delete('/{id}', 'LaporanController@delete')->name('Laporan_delete');
+});

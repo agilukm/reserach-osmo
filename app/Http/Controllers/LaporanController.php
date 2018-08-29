@@ -4,47 +4,56 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\Laporans\LaporanService;
+use App\Services\Companies\CompanyService;
+use App\Services\Pembangkits\PembangkitService;
 
 class LaporanController extends Controller
 {
     protected $service;
+    protected $company;
+    protected $pembangkit;
 
-    public function __construct(LaporanService $service)
+    public function __construct(LaporanService $service, CompanyService $company, PembangkitService $pembangkit)
     {
         $this->service = $service;
+        $this->company = $company;
+        $this->pembangkit = $pembangkit;
     }
 
-    public function index(Request $request)
+    public function browse(Request $request)
     {
-        $data = $this->service->browse($request);
-
+        $data = [
+            "laporans" => $this->service->browse($request)
+        ];
         return View('admin.laporans.index', $data);
     }
 
     public function input(Request $request)
     {
-        $data = array();
+        $data = array(
+            "companies" => $this->company->browse($request),
+        );
         return View('admin.laporans.add', $data);
     }
 
     public function add(Request $request)
     {
-        if ($this->payment->add($request)) {
+        if ($this->service->add($request)) {
            return redirect('laporan')->with('message', 'Berhasil Disimpan');
        }
     }
 
-    public function edit(Request $request, $id)
+    public function read(Request $request, $id)
     {
         $data = [
-            "company" => $this->service->get()
+            "laporan" => $this->service->get($id)
         ];
         return View('admin.laporans.edit', $data);
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        if ($this->payment->update($request)) {
+        if ($this->service->update($request, $id)) {
            return redirect('laporan')->with('message', 'Berhasil Disimpan');
        }
     }

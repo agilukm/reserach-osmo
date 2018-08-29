@@ -43,15 +43,15 @@ class PembangkitController extends Controller
     public function read(Request $request, $id)
     {
         $data = [
-            "pembangkits" => $this->service->get($id),
-            "company" => $this->company->browse($request)
+            "pembangkit" => $this->service->get($id),
+            "companies" => $this->company->browse($request)
         ];
         return View('admin.pembangkits.edit', $data);
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        if ($this->service->update($request)) {
+        if ($this->service->update($request, $id)) {
            return redirect('pembangkit')->with('message', 'Berhasil Disimpan');
        }
     }

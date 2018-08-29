@@ -54,12 +54,12 @@ class PembangkitService
         $pembangkit->no_registrasi = $input['no_registrasi'];
         $pembangkit->tahun_pembuatan = $input['tahun_pembuatan'];
         $pembangkit->mesin_jenis_turbin = $input['mesin_jenis_turbin'];
-        $pembangkit->mesin_merek_pembuat = $input['mesin_merek_pembuat'];
+        $pembangkit->mesin_merk_pembuat = $input['mesin_merk_pembuat'];
         $pembangkit->mesin_negara_pembuat = $input['mesin_negara_pembuat'];
         $pembangkit->mesin_tahun_pembuatan = $input['mesin_tahun_pembuatan'];
         $pembangkit->mesin_tipe_seri_mesin = $input['mesin_tipe_seri_mesin'];
         $pembangkit->mesin_kapasitas = $input['mesin_kapasitas'];
-        $pembangkit->generator_merek_pembuat = $input['generator_merek_pembuat'];
+        $pembangkit->generator_merk_pembuat = $input['generator_merk_pembuat'];
         $pembangkit->generator_negara_pembuat = $input['generator_negara_pembuat'];
         $pembangkit->generator_tahun_pembuatan = $input['generator_tahun_pembuatan'];
         $pembangkit->generator_tipe_seri_mesin = $input['generator_tipe_seri_mesin'];

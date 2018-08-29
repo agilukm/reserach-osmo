@@ -9,8 +9,8 @@ class Laporan extends Model
     protected $guarded = ['id'];
     protected $table = 'laporan';
 
-    public function pembangkits()
+    public function pembangkit()
     {
-        return $this->belongsTo(\App\Services\Pembangkits\Pembangkits::class, 'pembangkit_id');
+        return $this->belongsTo(\App\Services\Pembangkits\Pembangkit::class, 'pembangkit_id');
     }
 }

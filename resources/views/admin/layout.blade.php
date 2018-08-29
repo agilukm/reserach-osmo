@@ -262,10 +262,9 @@
     });
 
     var table = $('#myTable').DataTable();
-    $('select').select2({
-        language: "id",
-        placeholder: "Pilih",
-        allowclear: true
+    $('.select2').select2({
+        allowClear: true,
+        placeholder: 'Pilih Data'
     });
 
     $('.conf').click( function() {

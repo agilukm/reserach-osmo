@@ -3,14 +3,20 @@
 namespace App\Services\Laporans;
 
 use QueryBuilder;
+use App\Services\Pembangkits\PembangkitService;
+use App\Services\Skttks\SkttkService;
 
 class LaporanService
 {
     protected $model;
+    protected $pembangkit;
+    protected $skttk;
 
-    public function __construct(Laporan $model)
+    public function __construct(Laporan $model, PembangkitService $pembangkit, SkttkService $skttk)
     {
         $this->model = $model;
+        $this->pembangkit = $pembangkit;
+        $this->skttk = $skttk;
     }
 
     public function get($id='')
@@ -26,17 +32,21 @@ class LaporanService
 
     public function add($input)
     {
-        $data = $this->fill($input);
+        $data = $this->fill($this->model, $input);
         $data->save();
+        $pembangkit = $this->pembangkit->update($input, $input['pembangkit_id']);
+        $skttk = $this->skttk->laporanAdd($input, $input['company_id']);
         return $data;
     }
 
     public function update($input, $id)
     {
         $query = $this->get($id);
-        $data = $this->fill($input);
+        $data = $this->fill($query, $input);
         $query->fill($data->toArray());
         $query->save();
+        $pembangkit = $this->pembangkit->update($input, $input['pembangkit_id']);
+        $skttk = $this->skttk->laporanAdd($input, $input['company_id']);
         return $query;
     }
 

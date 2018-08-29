@@ -17,11 +17,9 @@ var neonLogin = neonLogin || {};
 			$(".login-page").addClass('logging-in'); // This will hide the login form and init the progress bar
 			$(".form-login-error").slideUp('fast');
 			neonLogin.setPercentage(100);
+			new Promise(resolve => setTimeout(resolve, 2000));
 
-			window.setTimeout( function(){
-				$(".login-page").removeClass('logging-in');
-					neonLogin.resetProgressBar(true);
-		});
+
 	});
 
 		// Login Form & Validation

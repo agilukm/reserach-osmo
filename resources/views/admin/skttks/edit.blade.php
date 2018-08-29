@@ -27,7 +27,7 @@
                         {{ method_field('PATCH') }}
                         <div class="form-group">
                             <label class="control-label">Nama Perusahaan</label>
-                            <select required class="form-control" name="company_id">
+                            <select required class="form-control select2" name="company_id">
                                 @foreach($companies as $key => $company)
                                     <option value="{{$company->id}}" @if($skttk->company_id == $company->id) selected @endif>{{$company->nama}}</option>
                                 @endforeach
