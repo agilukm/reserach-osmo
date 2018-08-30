@@ -60,7 +60,7 @@
                         <div class="form-group">
                             <label class="control-label">Nomor DPMPTSP</label>
 
-                            <input type="text" required class="form-control daterangepickerz" name="nomor_dpmptsp">
+                            <input type="text" required class="form-control" name="nomor_dpmptsp">
                         </div>
 
                         <div class="form-group">

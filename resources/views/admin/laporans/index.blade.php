@@ -29,7 +29,7 @@
                         <thead>
                             <tr>
                                 <th>No.</th>
-                                <th>Nama laporan</th>
+                                <th>Nama Perusahaan</th>
                                 <th>No. Sertifikat Pembangkit</th>
                                 <th>Waktu Laporan</th>
                                 <th>Aksi</th>

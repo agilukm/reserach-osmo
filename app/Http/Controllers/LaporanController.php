@@ -51,10 +51,32 @@ class LaporanController extends Controller
         return View('admin.laporans.edit', $data);
     }
 
+    public function format(Request $request, $id)
+    {
+        $data = [
+            "pembangkits" => $this->pembangkit->get($id)
+        ];
+        return View('admin.laporans.format', $data);
+    }
+    public function modal(Request $request, $id)
+    {
+        $data = [
+            "laporan" => $this->service->get($id)
+        ];
+        return View('admin.laporans.modal_laporan', $data);
+    }
+
     public function update(Request $request, $id)
     {
         if ($this->service->update($request, $id)) {
            return redirect('laporan')->with('message', 'Berhasil Disimpan');
+       }
+    }
+
+    public function updateFormat(Request $request, $id)
+    {
+        if ($this->service->update($request, $id)) {
+           return redirect('laporan/format/'.$request->pembangkit_id)->with('message', 'Berhasil Disimpan');
        }
     }
 

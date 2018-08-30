@@ -47,6 +47,9 @@ Route::group(['prefix' => 'laporan'], function() {
     Route::get('/tambah', 'LaporanController@input')->name('Laporan_input');
     Route::post('/', 'LaporanController@add')->name('Laporan_save');
     Route::get('/{id}', 'LaporanController@read')->name('Laporan_read');
+    Route::get('/format/{id}', 'LaporanController@format')->name('Laporan_format');
+    Route::get('/modal_laporan/{id}', 'LaporanController@modal')->name('Laporan_modal');
     Route::patch('/{id}', 'LaporanController@update')->name('Laporan_edit');
+    Route::patch('/format/{id}', 'LaporanController@updateFormat')->name('Laporan_edit');
     Route::delete('/{id}', 'LaporanController@delete')->name('Laporan_delete');
 });

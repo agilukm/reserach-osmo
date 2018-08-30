@@ -23,7 +23,7 @@ class CreateCompaniesTable extends Migration
             $table->string('nomor_pertek');
             $table->string('tgl_pertek');
             $table->string('nomor_dpmptsp');
-            $table->string('tgl_terbit');
+            $table->date('tgl_terbit');
             $table->string('tgl_berlaku');
             $table->string('tgl_berakhir');
         });

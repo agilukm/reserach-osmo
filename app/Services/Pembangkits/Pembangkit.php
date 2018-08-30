@@ -16,6 +16,6 @@ class Pembangkit extends Model
 
     public function laporan()
     {
-        return $this->belongsTo(\App\Services\Laporans\Laporan::class, 'pembangkit_id');
+        return $this->hasMany(\App\Services\Laporans\Laporan::class, 'pembangkit_id');
     }
 }
