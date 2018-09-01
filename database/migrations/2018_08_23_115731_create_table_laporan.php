@@ -17,13 +17,13 @@ class CreateTableLaporan extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->integer('pembangkit_id')->unsigned();
-            $table->string('jenis_bahan_bakar');
-            $table->string('konsumsi_bahan_bakar');
-            $table->string('jenis_pelumas');
-            $table->string('konsumsi_pelumas');
-            $table->string('waktu_operasi_mesin');
-            $table->string('produksi_listrik');
-            $table->string('jumlah_kerusakan');
+            $table->string('jenis_bahan_bakar')->nullable();
+            $table->string('konsumsi_bahan_bakar')->nullable();
+            $table->string('jenis_pelumas')->nullable();
+            $table->string('konsumsi_pelumas')->nullable();
+            $table->string('waktu_operasi_mesin')->nullable();
+            $table->string('produksi_listrik')->nullable();
+            $table->string('jumlah_kerusakan')->nullable();
             $table->string('sambungan_badan_usaha')->nullable();
             $table->string('sambungan_in_out')->nullable();
             $table->string('sambungan_rata_rata')->nullable();
@@ -41,8 +41,6 @@ class CreateTableLaporan extends Migration
      */
     public function down()
     {
-        Schema::table('laporan', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('laporan');
     }
 }

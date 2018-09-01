@@ -17,12 +17,12 @@ class CreateTableSkttk extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->integer('company_id')->unsigned();
-            $table->string('nama');
-            $table->string('penerbit');
-            $table->string('nomor');
-            $table->string('tanggal');
-            $table->string('bidang');
-            $table->string('level');
+            $table->string('nama')->nullable();
+            $table->string('penerbit')->nullable();
+            $table->string('nomor')->nullable();
+            $table->string('tanggal')->nullable();
+            $table->string('bidang')->nullable();
+            $table->string('level')->nullable();
             $table->string('ket')->nullable();
             $table->foreign('company_id')->references('id')->on("companies")
                 ->onDelete("cascade")
@@ -37,8 +37,6 @@ class CreateTableSkttk extends Migration
      */
     public function down()
     {
-        Schema::table('skttk', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('skttk');
     }
 }

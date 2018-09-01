@@ -30,6 +30,9 @@ Route::get('/perusahaan/{id}', function ($id) {
 Route::get('/perusahaan', function () {
     return \App\Services\Companies\Companies::get();
 });
+Route::get('/perusahaanz', function () {
+    return \DB::select('select *, datediff(NOW(), last_updated_time) as different_day from companies left join pembangkit on pembangkit.company_id = companies.id where (datediff(NOW(), last_updated_time) >= 1 AND not exists (select * from laporan where laporan.pembangkit_id = pembangkit.id)) ');
+});
 
 Route::get('/skttk/perusahaan/{id}', function ($id) {
     return \App\Services\Skttks\Skttk::where('company_id', $id)->get();

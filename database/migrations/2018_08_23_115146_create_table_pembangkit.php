@@ -17,20 +17,20 @@ class CreateTablePembangkit extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->integer('company_id')->unsigned();
-            $table->string('tgl_berlaku');
-            $table->string('tgl_berakhir');
-            $table->string('no_sertifikat');
-            $table->string('no_registrasi');
-            $table->integer('tahun_pembuatan');
-            $table->string('mesin_jenis_turbin');
-            $table->string('mesin_merk_pembuat');
-            $table->string('mesin_negara_pembuat');
-            $table->string('mesin_tahun_pembuatan');
+            $table->string('tgl_berlaku')->nullable();
+            $table->string('tgl_berakhir')->nullable();
+            $table->string('no_sertifikat')->nullable();
+            $table->string('no_registrasi')->nullable();
+            $table->integer('tahun_pembuatan')->nullable();
+            $table->string('mesin_jenis_turbin')->nullable();
+            $table->string('mesin_merk_pembuat')->nullable();
+            $table->string('mesin_negara_pembuat')->nullable();
+            $table->string('mesin_tahun_pembuatan')->nullable();
             $table->string('mesin_tipe_seri_mesin')->nullable();
             $table->string('mesin_kapasitas')->nullable();
-            $table->string('generator_merk_pembuat');
-            $table->string('generator_negara_pembuat');
-            $table->string('generator_tahun_pembuatan');
+            $table->string('generator_merk_pembuat')->nullable();
+            $table->string('generator_negara_pembuat')->nullable();
+            $table->string('generator_tahun_pembuatan')->nullable();
             $table->string('generator_tipe_seri_mesin')->nullable();
             $table->string('generator_kapasitas')->nullable();
             $table->string('generator_fasa')->nullable();
@@ -52,8 +52,6 @@ class CreateTablePembangkit extends Migration
      */
     public function down()
     {
-        Schema::table('pembangkit', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('pembangkit');
     }
 }

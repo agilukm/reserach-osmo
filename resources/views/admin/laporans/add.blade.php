@@ -27,6 +27,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
+                                    <!--  token -->
+                                    <input type="hidden" name="token" value="1">
                                     <label class="control-label">Nama Perusahaan</label>
                                     <select class="form-control select2" name="company_id" required id="perusahaan" placeholder="Pilih Data Perusahaan">
                                         <option></option>

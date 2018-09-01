@@ -23,7 +23,8 @@ class LaporanController extends Controller
     public function browse(Request $request)
     {
         $data = [
-            "laporans" => $this->service->browse($request)
+            "laporans" => $this->service->browse($request),
+            "pembangkit_expired" => $this->company->browse($request)
         ];
         return View('admin.laporans.index', $data);
     }
@@ -58,6 +59,7 @@ class LaporanController extends Controller
         ];
         return View('admin.laporans.format', $data);
     }
+
     public function modal(Request $request, $id)
     {
         $data = [

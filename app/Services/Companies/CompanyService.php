@@ -27,6 +27,7 @@ class CompanyService
     public function add($input)
     {
         $data = $this->fill($this->model, $input);
+        $data->last_updated_time = $input['tgl_terbit'];
         $data->save();
         return $data;
     }
@@ -58,6 +59,11 @@ class CompanyService
         $company->tgl_berlaku = $input['tgl_berlaku'];
         $company->tgl_berakhir = $input['tgl_berakhir'];
         return $company;
+    }
+
+    public function getNeedReport()
+    {
+        return \DB::select('select *, datediff(NOW(),tgl_terbit) from companies left join pembangkit on pembangkit.company_id = companies.id where exists(select * from pembangkit where pembangkit.company_id = companies.id) and (datediff(NOW(), tgl_terbit) > 180 AND not exists (select * from laporan where laporan.pembangkit_id = pembangkit.id))');
     }
 
 }

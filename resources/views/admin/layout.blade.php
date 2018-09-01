@@ -256,16 +256,21 @@
     @yield('plugin')
 
     <script type="text/javascript">
-
+    $(document).ready(function() {
+        $('.select2').select2({
+            allowClear: true,
+            placeholder: 'Pilih Data'
+        });
+    });
     $('.daterangepickerz').daterangepicker({
-        singleDatePicker: true
+        singleDatePicker: true,
+        locale: {
+            format: 'YYYY-MM-DD'
+        }
     });
 
     var table = $('#myTable').DataTable();
-    $('.select2').select2({
-        allowClear: true,
-        placeholder: 'Pilih Data'
-    });
+
 
     $('.conf').click( function() {
         console.log($('#value'+this.id).val(), this.id, this.name);
