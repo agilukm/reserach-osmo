@@ -158,12 +158,12 @@
                                 <li class="caret"></li>
 
                                 <!-- Profile sub-links -->
-                                <li>
+                                <!-- <li>
                                     <a href="Password">
                                         <i class="entypo-user"></i>
                                         Ganti Password
                                     </a>
-                                </li>
+                                </li> -->
                             </ul>
                         </li>
 
