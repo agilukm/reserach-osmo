@@ -15,8 +15,6 @@ class AddTokenLaporanTable extends Migration
     {
         Schema::table('laporan', function (Blueprint $table) {
             $table->string('token')->nullable();
-            $table->integer('bulan')->nullable();
-            $table->integer('tahun')->nullable();
             $table->integer('status')->default(0);
         });
     }
