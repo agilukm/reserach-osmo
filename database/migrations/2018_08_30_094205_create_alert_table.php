@@ -16,8 +16,6 @@ class CreateAlertTable extends Migration
         Schema::create('alert', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('pembangkit_id')->unsigned();
-            $table->integer('bulan');
-            $table->integer('tahun');
             $table->integer('peringatan');
             $table->timestamps();
             $table->foreign('pembangkit_id')->references('id')->on("pembangkit")
