@@ -31,7 +31,7 @@ Route::get('/perusahaan', function () {
     return \App\Services\Companies\Companies::get();
 });
 Route::get('/perusahaanz', function () {
-    return \DB::select('select *, datediff(NOW(), last_updated_time) as different_day from companies left join pembangkit on pembangkit.company_id = companies.id where (datediff(NOW(), last_updated_time) >= 1 AND not exists (select * from laporan where laporan.pembangkit_id = pembangkit.id)) ');
+    return \DB::select('select *, datediff(NOW(), last_updated_time) as different_day from companies left join pembangkit on pembangkit.company_id = companies.id where (datediff(NOW(), last_updated_time) >= 180 OR not exists (select * from laporan where laporan.pembangkit_id = pembangkit.id)) ');
 });
 
 Route::get('/skttk/perusahaan/{id}', function ($id) {
@@ -45,3 +45,5 @@ Route::get('/skttk/{id}', function ($id) {
 Route::get('/skttk', function () {
     return \App\Services\Skttks\Skttk::get();
 });
+
+Route::get('/alert/{id}/{alert}', 'LaporanController@sendAlert');

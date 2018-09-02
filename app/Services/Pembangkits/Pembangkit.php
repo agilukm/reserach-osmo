@@ -18,4 +18,9 @@ class Pembangkit extends Model
     {
         return $this->hasMany(\App\Services\Laporans\Laporan::class, 'pembangkit_id');
     }
+
+    public function alert()
+    {
+        return $this->hasMany(Alert::class, 'pembangkit_id');
+    }
 }

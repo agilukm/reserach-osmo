@@ -25,11 +25,11 @@
                     </div>
                     <div class="form-group">
                         <label for="grant1">Tanggal Berlaku</label>
-                        <input required type="text" class="form-control daterangepickerz" name="tgl_berlaku" placeholder="Tanggal Berlaku" value="{{$laporan->pembangkit->tgl_berlaku}}"  />
+                        <input required type="date" class="form-control daterangepickerz" name="tgl_berlaku" placeholder="Tanggal Berlaku" value="{{$laporan->pembangkit->tgl_berlaku}}"  />
                     </div>
                     <div class="form-group">
                         <label for="grant2">Tanggal Berakhir</label>
-                        <input required type="text" name="tgl_berakhir" class="form-control daterangepickerz" value="{{$laporan->pembangkit->tgl_berakhir}}" id='grant2' placeholder="Tanggal Berakhir"  />
+                        <input required type="date" name="tgl_berakhir" class="form-control daterangepickerz" value="{{$laporan->pembangkit->tgl_berakhir}}" id='grant2' placeholder="Tanggal Berakhir"  />
                     </div>
                     <div class="form-group">
                         <label for="shorttitle">Nomor Sertifikat</label>
@@ -43,7 +43,7 @@
                     </div>
                     <div class="form-group">
                         <label for="shorttitle">Tahun Pembuatan</label>
-                        <input required type="text" name="tahun_pembuatan" class="form-control" value="{{$laporan->pembangkit->tahun_pembuatan}}" 	id='shorttitle' placeholder="Tahun Pembuatan"  />
+                        <input required type="number" name="tahun_pembuatan" class="form-control" value="{{$laporan->pembangkit->tahun_pembuatan}}" 	id='shorttitle' placeholder="Tahun Pembuatan"  />
 
                     </div>
                     <div class="panel-group" id="accordion">
@@ -310,3 +310,11 @@
   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 </div>
 </form>
+<script type="text/javascript">
+$('.daterangepickerz').daterangepicker({
+    singleDatePicker: true,
+    locale: {
+        format: 'YYYY-MM-DD'
+    }
+});
+</script>

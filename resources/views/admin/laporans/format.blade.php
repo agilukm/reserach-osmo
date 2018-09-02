@@ -62,7 +62,10 @@ $token_status = array('0' => 'Belum Di isi','1'=>'Sudah Di isi' ); ?>
               <td><?php echo $key+1; ?></td>
               <td><?php echo $bulan[$var->created_at->month].' '.$var->created_at->year ?></td>
               <td><?php echo $var->updated_at ?></td>
-              <td><?php echo $token_status[1] ?></td>
+              <td><?php echo $var->status() ?>
+                  @if(count($var->pembangkit->alert) != 0)
+                    <p class="pull-right"> [Peringatan {{count($var->pembangkit->alert)}}] </p></td>
+                  @endif
               <td>
                 <div class="dropdown">
                   <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
@@ -96,11 +99,13 @@ $token_status = array('0' => 'Belum Di isi','1'=>'Sudah Di isi' ); ?>
         <div class="box-body">
          <h3>Reminder</h3>
           <div class="col-sm-12 ">
-          <?php $q = \DB::table('alert')->select(\DB::raw('count(id) as c'))->where('pembangkit_id', $pembangkits->id)->where('bulan', date('m'))->where('tahun', date('Y'))->first();
-          $c = $q->c;?>
+          <?php $q = \DB::table('alert')->select(\DB::raw('count(id) as c'))->where('pembangkit_id', $pembangkits->id)->first();
+          $c = $q->c;
+          $expireds = \DB::select('select *, datediff(NOW(),last_updated_time) as different_day from companies left join pembangkit on pembangkit.company_id = companies.id where pembangkit.company_id = '.$pembangkits->id.' and (datediff(NOW(), last_updated_time) > 180 or not exists (select * from laporan where laporan.pembangkit_id = pembangkit.id)) limit 1');
+          ?>
 
           <!-- alert 1 -->
-            <div class="box box-info <?php if ($c != 0): ?>disabled<?php endif ?>">
+            <div class="box box-info <?php if ($c != 0 || count($expireds) == 0): ?>disabled<?php endif ?>">
                 <div class="box-header with-border">
 
                 </div>
@@ -109,7 +114,7 @@ $token_status = array('0' => 'Belum Di isi','1'=>'Sudah Di isi' ); ?>
                         <div class="tile-header">
                             <i class="glyphicon glyphicon-bullhorn"></i><a href="#">Peringatan 1<span></span> </a>
                         </div>
-                        <form class="form-vertical" method="get" action="<?php echo url('laporan/alert/'.$pembangkits->id.'/'.date('m').'/'.date('Y').'/1')?>">
+                        <form class="form-vertical" method="get" action="<?php echo url('api/alert/'.$pembangkits->id.'/1')?>">
                         <input type="hidden" name="d" value="<?php echo MD5(date('r')) ?>">
                         <div class="tile-content">
                           <p>Waktu Pengiriman</p>
@@ -133,7 +138,7 @@ $token_status = array('0' => 'Belum Di isi','1'=>'Sudah Di isi' ); ?>
                         <div class="tile-header">
                             <i class="glyphicon glyphicon-bullhorn"></i><a href="#">Peringatan 2<span></span> </a>
                         </div>
-                        <form class="form-vertical" method="get" action="<?php echo url('laporan/alert/'.$pembangkits->id.'/'.date('m').'/'.date('Y').'/2')?>">
+                        <form class="form-vertical" method="get" action="<?php echo url('api/alert/'.$pembangkits->id.'/2')?>">
                         <input type="hidden" name="d" value="<?php echo MD5(date('r')) ?>">
                         <div class="tile-content">
                           <p>Waktu Pengiriman</p>
@@ -157,7 +162,7 @@ $token_status = array('0' => 'Belum Di isi','1'=>'Sudah Di isi' ); ?>
                         <div class="tile-header">
                             <i class="glyphicon glyphicon-bullhorn"></i><a href="#">Peringatan 3<span></span> </a>
                         </div>
-                        <form class="form-vertical" method="get" action="<?php echo url('laporan/alert/'.$pembangkits->id.'/'.date('m').'/'.date('Y').'/3')?>">
+                        <form class="form-vertical" method="get" action="<?php echo url('api/alert/'.$pembangkits->id.'/3')?>">
                         <input type="hidden" name="d" value="<?php echo MD5(date('r')) ?>">
                         <div class="tile-content">
                           <p>Waktu Pengiriman</p>
@@ -181,7 +186,7 @@ $token_status = array('0' => 'Belum Di isi','1'=>'Sudah Di isi' ); ?>
                         <div class="tile-header">
                             <i class="glyphicon glyphicon-bullhorn"></i><a href="#">Peringatan 4<span></span> </a>
                         </div>
-                        <form class="form-vertical" method="get" action="<?php echo url('laporan/alert/'.$pembangkits->id.'/'.date('m').'/'.date('Y').'/4')?>">
+                        <form class="form-vertical" method="get" action="<?php echo url('api/alert/'.$pembangkits->id.'/4')?>">
                         <input type="hidden" name="d" value="<?php echo MD5(date('r')) ?>">
                         <div class="tile-content">
                           <p>Waktu Pengiriman</p>

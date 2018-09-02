@@ -86,7 +86,7 @@
 					</div>
 					<div class="tab-pane" id="profile">
 
-                        <table id="myTable" class="table table-bordered table-striped">
+                        <table id="myTable2" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
                                     <th>No.</th>
@@ -97,16 +97,21 @@
                             </thead>
                             <tbody>
                                 @foreach($pembangkit_expired as $key => $perusahaan)
-                                <tr class="{{$key}}">
+                                <?php
+                                    if(count(\DB::select('select * from laporan left join pembangkit on pembangkit.id = laporan.pembangkit_id where status = 0 and company_id = '.$perusahaan->id)) != 0):
+                                        continue;
+                                    endif
+                                ?>
+                                <tr class="pembangkit{{$key}}">
                                     <td>{{$key+1}}</td>
                                     <td>{{$perusahaan->nama}}</td>
-                                    <td>{{count($perusahaan->pembangkits)}}</td>
+                                    <td>{{count(\DB::select('select * from pembangkit where company_id = '.$perusahaan->id))}}</td>
                                     <td>
                                         <div class="dropdown">
                                             <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
                                             <ul class="dropdown-menu">
-                                                <input type="hidden" name=""  value="{{url('/laporan/')}}/{{$perusahaan->id}}" id="value{{$key}}">
-                                                <li> <a href="#" name="hapus" id="{{$key}}" class="email"><i class="glyphicon glyphicon-info-sign"></i>  Kirim Email</a></center></li>
+                                                <input type="hidden" name=""  value="{{url('/laporan/bulk_email/')}}/{{$perusahaan->id}}" id="valuepembangkit{{$key}}">
+                                                <li> <a href="#" name="email" id="pembangkit{{$key}}" class="email"><i class="glyphicon glyphicon-info-sign"></i>  Kirim Email</a></center></li>
                                             </ul>
                                         </div>
                                     </td>
@@ -148,5 +153,45 @@
 <script type="text/javascript">$(document).ready(function(){
     $('#myTable').DataTable();
 });
+
+var table2 = $('#myTable2').DataTable();
+
+$('.email').click( function() {
+    console.log($('#value'+this.id).val(), this.id, this.name, 'GET');
+    var conf = confirms($('#value'+this.id).val(), this.id, this.name, 'GET');
+});
+
+function confirms(uri, id, name, type){
+    console.log(id);
+    swal({
+        title: "Data akan di"+name,
+        text: "Apakah anda yakin?",
+        type: "warning",
+        showCancelButton: true,
+        closeOnConfirm: false,
+        confirmButtonText: "Yakin",
+        cancelButtonText: "Batal",
+        confirmButtonColor: "#ec6c62"
+    }, function (isConfirm) {
+        if (!isConfirm) return;
+        table2.row($('.'+id)).remove().draw( false );
+        $.ajax({
+            url: uri,
+            type: type,
+            dataType: "html",
+            success: function () {
+                var asd = table2.row($('.'+id)).remove().draw( false );
+                if(asd)
+                {
+                    swal("Behasil!", "Data berhasil di"+name, "success");
+                }
+            },
+
+            error: function (xhr, ajaxOptions, thrownError) {
+                swal("Behasil!", "Data berhasil di"+name, "success");
+            }
+        });
+    });
+}
 </script>
 @endsection

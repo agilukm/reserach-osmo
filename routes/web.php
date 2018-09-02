@@ -13,6 +13,7 @@
 Route::get('/', function () {
     return view('front.index');
 });
+
 Route::get('/company', 'CompanyController@index');
 
 Auth::routes();
@@ -47,9 +48,12 @@ Route::group(['prefix' => 'laporan'], function() {
     Route::get('/tambah', 'LaporanController@input')->name('Laporan_input');
     Route::post('/', 'LaporanController@add')->name('Laporan_save');
     Route::get('/{id}', 'LaporanController@read')->name('Laporan_read');
+    Route::get('/bulk_email/{id}', 'LaporanController@bulkEmail')->name('Laporan_bulk');
     Route::get('/format/{id}', 'LaporanController@format')->name('Laporan_format');
     Route::get('/modal_laporan/{id}', 'LaporanController@modal')->name('Laporan_modal');
+    Route::get('/input/{token}', 'LaporanController@input_perusahaan')->name('Laporan_perusahaan');
     Route::patch('/{id}', 'LaporanController@update')->name('Laporan_edit');
+    Route::patch('/input/{id}', 'LaporanController@update_perusahaan')->name('Laporan_edit_perusahaan');
     Route::patch('/format/{id}', 'LaporanController@updateFormat')->name('Laporan_edit');
     Route::delete('/{id}', 'LaporanController@delete')->name('Laporan_delete');
 });

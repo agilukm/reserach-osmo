@@ -24,7 +24,7 @@ class LaporanController extends Controller
     {
         $data = [
             "laporans" => $this->service->browse($request),
-            "pembangkit_expired" => $this->company->browse($request)
+            "pembangkit_expired" => $this->company->getNeedReport()
         ];
         return View('admin.laporans.index', $data);
     }
@@ -68,10 +68,28 @@ class LaporanController extends Controller
         return View('admin.laporans.modal_laporan', $data);
     }
 
+    public function input_perusahaan(Request $request, $token)
+    {
+        $data = [
+            "laporan" => $this->service->getWithToken($token)
+        ];
+        return View('admin.laporans.input_perusahaan', $data);
+    }
+
     public function update(Request $request, $id)
     {
         if ($this->service->update($request, $id)) {
            return redirect('laporan')->with('message', 'Berhasil Disimpan');
+       }
+    }
+
+    public function update_perusahaan(Request $request, $id)
+    {
+        if ($laporan = $this->service->update($request, $id)) {
+            $data = [
+                'laporan' => $laporan
+            ];
+           return View('admin.laporans.thanks', $data)->with('message', 'Berhasil Disimpan');
        }
     }
 
@@ -88,5 +106,18 @@ class LaporanController extends Controller
             return response('success', 200)
                  ->header('Content-Type', 'text/plain');
         };
+    }
+
+    public function bulkEmail($id)
+    {
+        if($this->service->bulkEmail($id)) {
+            return redirect('laporan')->with('message', 'Berhasil Dikirim');
+        }
+    }
+    public function sendAlert($pembangkit_id, $peringatan)
+    {
+        if($this->service->sendAlert($pembangkit_id, $peringatan)) {
+            return redirect('laporan/format/'.$pembangkit_id)->with('message', 'Berhasil Dikirim');
+        }
     }
 }

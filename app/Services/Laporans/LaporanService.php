@@ -7,6 +7,8 @@ use App\Services\Pembangkits\PembangkitService;
 use App\Services\Skttks\SkttkService;
 use App\Services\Companies\CompanyService;
 use App\Services\Companies\Companies;
+use App\Services\Pembangkits\Alert;
+use Illuminate\Datebase\Eloquent\Collection;
 
 class LaporanService
 {
@@ -28,6 +30,11 @@ class LaporanService
         return $this->model->findOrFail($id);
     }
 
+    public function getWithToken($token='')
+    {
+        return $this->model->where('token', $token)->first();
+    }
+
     public function browse($input)
     {
         $query =  new QueryBuilder($this->model, $input);
@@ -41,11 +48,6 @@ class LaporanService
         $this->generateToken($data->id);
         $pembangkit = $this->pembangkit->update($input, $input['pembangkit_id']);
         $skttk = $this->skttk->laporanAdd($input, $input['company_id']);
-
-        if(isset($input['status']) && $input['status'] == 1){
-            $this->addIntervalCompanyUpdated($input['pembangkit_id']);
-        }
-
         return $data;
     }
 
@@ -88,6 +90,11 @@ class LaporanService
         $laporan->sambungan_in_out = $input['sambungan_in_out'];
         $laporan->sambungan_rata_rata = $input['sambungan_rata_rata'];
         $laporan->sambungan_cara_distribusi = $input['sambungan_cara_distribusi'];
+        if(isset($input['status']) && $input['status'] == 1){
+            $laporan->status = $input['status'];
+            $this->addIntervalCompanyUpdated($input['pembangkit_id']);
+            $this->clearAlert($input['pembangkit_id']);
+        }
         return $laporan;
     }
 
@@ -100,6 +107,55 @@ class LaporanService
         $company->last_updated_time = date_format($new_date, 'Y-m-d');
         $company->save();
         return $company;
+    }
+
+    public function bulkEmail($company_id)
+    {
+        $company = $this->company->get($company_id);
+        foreach ($company->pembangkits as $key => $value) {
+            $laporan = new Laporan;
+            $laporan->pembangkit_id = $value->id;
+            $laporan->save();
+            $this->generateToken($laporan->id);
+            $data = [
+                'laporan' => $this->get($laporan->id)->toArray(),
+                'pembangkit' => $laporan->pembangkit->toArray(),
+                'perusahaan' => ' - '.$company->name,
+                'peringatan' => ''
+            ];
+            $this->sendEmail($data, 'Input Laporan', $company->email);
+        }
+    }
+
+    public function sendEmail($data, $title, $user)
+    {
+        \Mail::send('admin.email', $data , function ($message) use ($title) {
+            $message->subject($title);
+            $message->from(env('MAIL_USERNAME','skripsianunikom@gmail.com'), 'Admin@admin.com');
+            $message->to('agilukm07@gmail.com');
+        });
+    }
+
+    public function clearAlert($pembangkit_id)
+    {
+        return \DB::table('alert')->where('pembangkit_id', $pembangkit_id)->delete();
+    }
+
+    public function sendAlert($pembangkit_id, $peringatan)
+    {
+        $alert = new Alert;
+        $alert->pembangkit_id = $pembangkit_id;
+        $alert->peringatan = $peringatan;
+        $alert->save();
+        $pembangkit = $this->pembangkit->get($pembangkit_id);
+        $data = [
+            'laporan' => $pembangkit->laporan->sortByDesc('laporan.id')->first()->toArray(),
+            'pembangkit' => $pembangkit->toArray(),
+            'perusahaan' => ' - '.$pembangkit->company->name,
+            'peringatan' => $peringatan
+        ];
+        $this->sendEmail($data, 'E-Osmosys Reminder', $pembangkit->company->email);
+        return $alert;
     }
 
 }

@@ -15,7 +15,7 @@ class Laporan extends Model
     {
         return [
             self::STATUS_BELUM    => 'Belum Diisi',
-            self::STATUS_ACCEPTED => 'Dikirim',
+            self::STATUS_SUDAH => 'Terkirim',
         ];
    }
 

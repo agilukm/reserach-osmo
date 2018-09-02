@@ -63,7 +63,7 @@ class CompanyService
 
     public function getNeedReport()
     {
-        return \DB::select('select *, datediff(NOW(),tgl_terbit) from companies left join pembangkit on pembangkit.company_id = companies.id where exists(select * from pembangkit where pembangkit.company_id = companies.id) and (datediff(NOW(), tgl_terbit) > 180 AND not exists (select * from laporan where laporan.pembangkit_id = pembangkit.id))');
+        return \DB::select('select *, datediff(NOW(),last_updated_time) from companies left join pembangkit on pembangkit.company_id = companies.id where exists(select * from pembangkit where pembangkit.company_id = companies.id) and (datediff(NOW(), last_updated_time) > 180 OR not exists (select * from laporan where laporan.pembangkit_id = pembangkit.id)) group by companies.id');
     }
 
 }

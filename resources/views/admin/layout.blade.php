@@ -273,11 +273,10 @@
 
 
     $('.conf').click( function() {
-        console.log($('#value'+this.id).val(), this.id, this.name);
-        var conf = confirm($('#value'+this.id).val(), this.id, this.name);
+        var conf = confirm($('#value'+this.id).val(), this.id, this.name, 'DELETE');
     });
 
-    function confirm(uri, id, name){
+    function confirm(uri, id, name, type){
         swal({
             title: "Data akan di"+name,
             text: "Apakah anda yakin?",
@@ -292,7 +291,7 @@
             table.row($('.'+id)).remove().draw( false );
             $.ajax({
                 url: uri,
-                type: "DELETE",
+                type: type,
                 dataType: "html",
                 success: function () {
                     var asd = table.row($('.'+id)).remove().draw( false );
