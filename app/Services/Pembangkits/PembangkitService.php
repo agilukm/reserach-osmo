@@ -20,6 +20,24 @@ class PembangkitService
 
     public function browse($input)
     {
+        $kotas = array();
+        if (\Auth::check()) {
+
+            if (\Auth::user()->roles != 'admin') {
+
+                $accessess = \DB::table('accesses')->where('user_id', \Auth::user()->id)->get();
+
+                foreach ($accessess as $key => $access) {
+                    $kotas[] = $access->kota;
+                }
+
+                return $this->model->whereHas('company', function($query) use ($kotas)
+                {
+                    $query->whereIn('kota', $kotas);
+                })->get();
+            }
+        }
+
         $query =  new QueryBuilder($this->model, $input);
         return $query->build()->get();
     }

@@ -19,6 +19,14 @@ Route::get('/company', 'CompanyController@index');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::group(['prefix' => 'user'], function() {
+    Route::get('/', 'UserController@browse');
+    Route::get('/tambah', 'UserController@add');
+    Route::get('/{id}', 'UserController@read');
+    Route::post('/', 'UserController@simpan');
+    Route::patch('/{id}', 'UserController@edit');
+    Route::delete('/{id}', 'UserController@delete');
+});
 Route::group(['prefix' => 'perusahaan'], function() {
     Route::get('/', 'CompanyController@browse')->name('Company_index');
     Route::get('/tambah', 'CompanyController@input')->name('Company_input');
@@ -34,6 +42,14 @@ Route::group(['prefix' => 'skttk'], function() {
     Route::get('/{id}', 'SkttkController@read')->name('Skttk_read');
     Route::patch('/{id}', 'SkttkController@update')->name('Skttk_edit');
     Route::delete('/{id}', 'SkttkController@delete')->name('Skttk_delete');
+});
+Route::group(['prefix' => 'access'], function() {
+    Route::get('/', 'AccessController@browse')->name('Access_index');
+    Route::get('/tambah', 'AccessController@input')->name('Access_input');
+    Route::post('/', 'AccessController@add')->name('Access_save');
+    Route::get('/{id}', 'AccessController@read')->name('Access_read');
+    Route::patch('/{id}', 'AccessController@update')->name('Access_edit');
+    Route::delete('/{id}', 'AccessController@delete')->name('Access_delete');
 });
 Route::group(['prefix' => 'pembangkit'], function() {
     Route::get('/', 'PembangkitController@browse')->name('Pembangkit_index');

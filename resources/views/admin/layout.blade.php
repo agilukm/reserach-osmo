@@ -111,7 +111,7 @@
                     <li class="header">MENU</li>
 
                     <li>
-                        <a href="{{ url('/') }}"><i class="fa fa-dashboard"></i><span>Dashboard</span></a>
+                        <a href="{{ url('/home') }}"><i class="fa fa-dashboard"></i><span>Dashboard</span></a>
                     </li>
 
                     <li>
@@ -128,6 +128,14 @@
                     <li>
                         <a href="{{ url('/') }}/laporan"><i class="fa fa-file" aria-hidden="true"></i> <span>Laporan</span></a>
                     </li>
+                    @if(\Auth::user()->roles == 'admin')
+                    <li>
+                        <a href="{{ url('/') }}/user"><i class="fa fa-user" aria-hidden="true"></i> <span>Pengguna</span></a>
+                    </li>
+                    <li>
+                        <a href="{{ url('/') }}/access"><i class="fa fa-cogs" aria-hidden="true"></i> <span>Akses Pengguna</span></a>
+                    </li>
+                    @endif
 
 
                 </ul>
@@ -184,12 +192,12 @@
 
                         <li class="sep"></li>
 
-                        <li>
+                        <!-- <li>
                             <a href="Password">
                                 <i class="entypo-user"></i>
                                 Ganti Password
                             </a>
-                        </li>
+                        </li> -->
 
 
                         <li class="sep">
