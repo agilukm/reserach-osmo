@@ -82,10 +82,10 @@ class CompanyService
 
                 $accessess = \DB::table('accesses')->where('user_id', \Auth::user()->id)->get();
                 foreach ($accessess as $key => $access) {
-                    $kotas[] = $access->kota;
+                    $kotas[] = "'".$access->kota."'";
                 }
 
-                return \DB::select('select *, datediff(NOW(),last_updated_time) from companies left join pembangkit on pembangkit.company_id = companies.id where exists(select * from pembangkit where pembangkit.company_id = companies.id) and companies.kota in('.$kotas.')  and (datediff(NOW(), last_updated_time) > 180 OR not exists (select * from laporan where laporan.pembangkit_id = pembangkit.id)) group by companies.id');
+                return \DB::select('select *, datediff(NOW(),last_updated_time) from companies left join pembangkit on pembangkit.company_id = companies.id where exists(select * from pembangkit where pembangkit.company_id = companies.id) and companies.kota in ('. implode(",", $kotas) .')  and (datediff(NOW(), last_updated_time) > 180 OR not exists (select * from laporan where laporan.pembangkit_id = pembangkit.id)) group by companies.id');
             }
         }
 

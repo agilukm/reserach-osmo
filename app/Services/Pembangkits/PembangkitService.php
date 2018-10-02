@@ -20,6 +20,7 @@ class PembangkitService
 
     public function browse($input)
     {
+        $filter = $input->all();
         $kotas = array();
         if (\Auth::check()) {
 
@@ -31,9 +32,12 @@ class PembangkitService
                     $kotas[] = $access->kota;
                 }
 
-                return $this->model->whereHas('company', function($query) use ($kotas)
+                return $this->model->whereHas('company', function($query) use ($kotas, $filter)
                 {
                     $query->whereIn('kota', $kotas);
+                    foreach ($filter as $key => $value) {
+                        $query->where($key, $value);
+                    }
                 })->get();
             }
         }

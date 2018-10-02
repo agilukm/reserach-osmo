@@ -30,9 +30,9 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="control-label">Nama Perusahaan</label>
-                                    <select2 class="form-control" name="company_id" required>
+                                    <select class="form-control" name="company_id" required>
                                         @foreach($companies as $key => $company)
-                                            <option value="{{$company->id}}">{{$company->nama}}</option>
+                                            <option value="{{$company->id}}" @if($pembangkit->company_id == $company->id) selected @endif>{{$company->nama}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -69,7 +69,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="shorttitle">Tahun Pembuatan</label>
-                                                            <input required  type="number" name="tahun_pembuatan" class="form-control" value="{{$pembangkit->tahun_pembuatan}}" 	id='shorttitle' placeholder="Tahun Pembuatan"  />
+                                                            <input required  type="text" name="tahun_pembuatan" class="form-control" value="{{$pembangkit->tahun_pembuatan}}" 	id='shorttitle' placeholder="Tahun Pembuatan"  />
 
                                                         </div>
                                                     </div>
@@ -104,7 +104,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="grantpo">Tahun Pembuatan</label>
-                                                            <input required  type="number" name="mesin_tahun_pembuatan"  value="{{$pembangkit->mesin_tahun_pembuatan}}" placeholder="Tahun Pembuatan Mesin" class="form-control" id="grantpo">
+                                                            <input required  type="text" name="mesin_tahun_pembuatan"  value="{{$pembangkit->mesin_tahun_pembuatan}}" placeholder="Tahun Pembuatan Mesin" class="form-control" id="grantpo">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="grantpo">Tipe / Seri Mesin</label>
@@ -142,7 +142,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="grantpo">Tahun Pembuatan</label>
-                                                            <input required  type="number" name="generator_tahun_pembuatan"  value="{{$pembangkit->generator_tahun_pembuatan}}"  placeholder="Tahun Pembuatan Mesin" class="form-control" id="grantpo">
+                                                            <input required  type="text" name="generator_tahun_pembuatan"  value="{{$pembangkit->generator_tahun_pembuatan}}"  placeholder="Tahun Pembuatan Mesin" class="form-control" id="grantpo">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="grantpo">Tipe / Seri Mesin</label>

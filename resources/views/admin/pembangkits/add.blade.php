@@ -67,7 +67,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="shorttitle">Tahun Pembuatan</label>
-                                                            <input required type="number" name="tahun_pembuatan" class="form-control" value="" 	id='shorttitle' placeholder="Tahun Pembuatan"  />
+                                                            <input required type="text" name="tahun_pembuatan" class="form-control" value="" 	id='shorttitle' placeholder="Tahun Pembuatan"  />
 
                                                         </div>
                                                     </div>
@@ -102,7 +102,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="grantpo">Tahun Pembuatan</label>
-                                                            <input required type="number" name="mesin_tahun_pembuatan" placeholder="Tahun Pembuatan Mesin" class="form-control" id="grantpo">
+                                                            <input required type="text" name="mesin_tahun_pembuatan" placeholder="Tahun Pembuatan Mesin" class="form-control" id="grantpo">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="grantpo">Tipe / Seri Mesin</label>
@@ -140,7 +140,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="grantpo">Tahun Pembuatan</label>
-                                                            <input required type="number" name="generator_tahun_pembuatan" placeholder="Tahun Pembuatan Mesin" class="form-control" id="grantpo">
+                                                            <input required type="text" name="generator_tahun_pembuatan" placeholder="Tahun Pembuatan Mesin" class="form-control" id="grantpo">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="grantpo">Tipe / Seri Mesin</label>

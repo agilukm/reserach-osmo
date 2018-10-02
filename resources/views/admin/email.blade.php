@@ -17,7 +17,7 @@
                     No. Sertifikat : {{$pembangkit['no_sertifikat']}} <br>
                     No. Registrasi : {{$pembangkit['no_registrasi']}} <br>
                     SEGERA ISI LAPORAN DENGAN MENGKLIK TAUTAN BERIKUT <br>
-                    <center><a href="<?php echo url('/Laporan/input/'.$laporan['token']) ?>">Isi Laporan</a></center>
+                    <center><a href="<?php echo url('/laporan/input/'.$laporan['token']) ?>">Isi Laporan</a></center>
                 </span>
 			</td>
 		</tr>

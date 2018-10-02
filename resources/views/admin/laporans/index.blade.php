@@ -98,14 +98,14 @@
                             <tbody>
                                 @foreach($pembangkit_expired as $key => $perusahaan)
                                 <?php
-                                    if(count(\DB::select('select * from laporan left join pembangkit on pembangkit.id = laporan.pembangkit_id where status = 0 and company_id = '.$perusahaan->id)) != 0):
+                                    if(count(\DB::select('select * from laporan left join pembangkit on pembangkit.id = laporan.pembangkit_id where status = 0 and company_id = '.$perusahaan->company_id)) != 0):
                                         continue;
                                     endif
                                 ?>
                                 <tr class="pembangkit{{$key}}">
                                     <td>{{$key+1}}</td>
-                                    <td>{{$perusahaan->nama}}</td>
-                                    <td>{{count(\DB::select('select * from pembangkit where company_id = '.$perusahaan->id))}}</td>
+                                    <td>{{$perusahaan->nama}} {{$perusahaan->company_id}}</td>
+                                    <td>{{\DB::table('pembangkit')->where('company_id', $perusahaan->company_id)->count()}}</td>
                                     <td>
                                         <div class="dropdown">
                                             <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
