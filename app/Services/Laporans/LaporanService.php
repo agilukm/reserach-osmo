@@ -137,7 +137,7 @@ class LaporanService
             $data = [
                 'laporan' => $this->get($laporan->id)->toArray(),
                 'pembangkit' => $laporan->pembangkit->toArray(),
-                'perusahaan' => ' - '.$company->name,
+                'perusahaan' => ' - '.$company->nama,
                 'peringatan' => ''
             ];
             $this->sendEmail($data, 'Input Laporan', $company->email);
@@ -168,7 +168,7 @@ class LaporanService
         $data = [
             'laporan' => $pembangkit->laporan->sortByDesc('laporan.id')->first()->toArray(),
             'pembangkit' => $pembangkit->toArray(),
-            'perusahaan' => ' - '.$pembangkit->company->name,
+            'perusahaan' => ' - '.$pembangkit->company->nama,
             'peringatan' => $peringatan
         ];
         $this->sendEmail($data, 'E-Osmosys Reminder', $pembangkit->company->email);
