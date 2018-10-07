@@ -5,6 +5,7 @@
 <div class="modal-body">
     <form role="form" id="form1" action="{{url('/laporan/format')}}/{{$laporan->id}}" method="post" class="validate">
         {{ method_field('PATCH') }}
+        <input required type="hidden" class="form-control" name="status" placeholder="Tanggal Berlaku" value="1"  />
     <div class="panel-body">
         <div class="row item-description">
             <div class="col-lg-12">
@@ -22,6 +23,10 @@
                             <option value="{{$laporan->pembangkit_id}}">{{$laporan->pembangkit->no_sertifikat}} - {{$laporan->pembangkit->no_registrasi}}</option>
 
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="grant1">Periode</label>
+                        <input required type="number" class="form-control" name="periode" placeholder="Periode" value="{{$laporan->periode}}"  />
                     </div>
                     <div class="form-group">
                         <label for="grant1">Tanggal Berlaku</label>

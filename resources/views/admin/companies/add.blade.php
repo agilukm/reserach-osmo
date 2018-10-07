@@ -41,6 +41,15 @@
                         </div>
 
                         <div class="form-group">
+                            <label class="control-label">Jenis Izin</label>
+                            <select class="form-control" name="jenis_izin">
+                                <option value="IO">IO</option>
+                                <option value="SKT">SKT</option>
+                                <option value="25KVA">25KVA</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
                             <label class="control-label">Kabupaten / Kota</label>
 
                             <input type="text" class="form-control" name="kota" placeholder="Kabupaten / Kota">
@@ -79,6 +88,12 @@
                             <label class="control-label">Tanggal Berakhir</label>
 
                             <input type="text" class="form-control daterangepickerz" name="tgl_berakhir">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">Tahun Terbit</label>
+
+                            <input type="text" class="form-control" name="tahun">
                         </div>
 
                         <div class="form-group">

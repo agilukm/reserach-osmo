@@ -32,8 +32,6 @@
                                 <th>Nama Perusahaan</th>
                                 <th>Nama Tenaga Kerja</th>
                                 <th>Penerbit</th>
-                                <th>Nomor</th>
-                                <th>Tanggal</th>
                                 <th>Bidang</th>
                                 <th>Level</th>
                                 <th>Aksi</th>
@@ -46,8 +44,6 @@
                                 <td>{{$skttk->company->nama}}</td>
                                 <td>{{$skttk->nama}}</td>
                                 <td>{{$skttk->penerbit}}</td>
-                                <td>{{$skttk->nomor}}</td>
-                                <td>{{$skttk->tanggal}}</td>
                                 <td>{{$skttk->bidang}}</td>
                                 <td>{{$skttk->level}}</td>
                                 <td>

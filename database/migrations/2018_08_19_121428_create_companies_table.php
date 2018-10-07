@@ -26,6 +26,8 @@ class CreateCompaniesTable extends Migration
             $table->date('tgl_terbit')->nullable();
             $table->string('tgl_berlaku')->nullable();
             $table->string('tgl_berakhir')->nullable();
+            $table->string('jenis_izin')->nullable();
+            $table->string('tahun')->nullable();
             $table->date('last_updated_time')->nullable();
             $table->string('status')->nullable();
         });

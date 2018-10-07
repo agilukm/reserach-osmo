@@ -162,7 +162,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="grantpo">Tegangan</label>
-                                                            <input required  type="text" name="generator_tegangan"  value="{{$pembangkit->gemera_tegangan}}" placeholder="Tegangan" class="form-control" id="grantpo">
+                                                            <input required  type="text" name="generator_tegangan"  value="{{$pembangkit->generator_tegangan}}" placeholder="Tegangan" class="form-control" id="grantpo">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="grantpo">Arus</label>

@@ -68,17 +68,15 @@ jQuery(document).ready(function($)
 	var line_chart = Morris.Line({
 		element: 'line-chart-demo',
 		data: [
-			{ y: '2011', a: 0, b: 0 },
-			{ y: '2012', a: 0,  b: 0 },
-			{ y: '2013', a: 0,  b: 0 },
-			{ y: '2014', a: 0,  b: 0 },
-			{ y: '2015', a: 0,  b: 0 },
-			{ y: '2016', a: 0,  b: 0 },
-			{ y: '2017', a: 9, b: 1 }
+			{ y: '2014', a: 0},
+			{ y: '2015', a: 2},
+			{ y: '2016', a: 4},
+			{ y: '2017', a: 9},
+			{ y: '2018', a: 500}
 		],
 		xkey: 'y',
-		ykeys: ['a', 'b'],
-		labels: ['Izin Terbit', 'Laporan Berkala'],
+		ykeys: ['a'],
+		labels: ['Laporan Berkala'],
 		redraw: true
 	});
 
@@ -200,8 +198,8 @@ function getRandomInt(min, max)
 			<div class="icon"><i class="entypo-users"></i></div>
 			<div class="num" data-start="0" data-end="81" data-postfix="" data-duration="1500" data-delay="0">0</div>
 
-			<h3>SLO Terbit</h3>
-			<p>Sertifikasi Laik Operasi yang diterbitkan oleh Dinas.</p>
+			<h3>Laporan Belum Diisi</h3>
+			<p>Laporan Yang Sudah Masuk Ke Sistem.</p>
 		</div>
 
 	</div>
@@ -212,7 +210,7 @@ function getRandomInt(min, max)
 			<div class="icon"><i class="entypo-chart-bar"></i></div>
 			<div class="num" data-start="0" data-end="537" data-postfix="" data-duration="1500" data-delay="600">0</div>
 
-			<h3>Registrasi SLO</h3>
+			<h3>Laporan Sudah Diisi</h3>
 			<p>SLO yang diterbitkan oleh LIT Akreditasi.</p>
 		</div>
 
@@ -226,7 +224,7 @@ function getRandomInt(min, max)
 			<div class="icon"><i class="entypo-mail"></i></div>
 			<div class="num" data-start="0" data-end="7" data-postfix="" data-duration="1500" data-delay="1200">0</div>
 
-			<h3>Izin Terbit</h3>
+			<h3>Jumlah Perusahaan</h3>
 			<p>Izin yang diterbitkan oleh DPMPTSP.</p>
 		</div>
 
@@ -238,7 +236,7 @@ function getRandomInt(min, max)
 			<div class="icon"><i class="entypo-rss"></i></div>
 			<div class="num" data-start="0" data-end="1" data-postfix="" data-duration="1500" data-delay="1800">0</div>
 
-			<h3>Laporan Berkala</h3>
+			<h3>Jumlah Pembangkit</h3>
 			<p>Laporan yang sudah dimasukan oleh perusahaan</p>
 		</div>
 
@@ -279,13 +277,9 @@ function getRandomInt(min, max)
 					</div>
 
 					<div class="tab-pane active" id="line-chart" style="">
-						<div id="line-chart-demo" class="morrischart" style="height: 300px; position: relative;"><div class="morris-hover morris-default-style" style="left: 773.345px; top: 93px;"><div class="morris-hover-row-label">2017</div><div class="morris-hover-point" style="color: #0b62a4">
-							Izin Terbit:
-							9
-						</div><div class="morris-hover-point" style="color: #7A92A3">
-							Laporan Berkala:
-							1
-						</div></div></div>
+						<div id="line-chart-demo" class="morrischart" style="height: 300px; position: relative;">
+
+						</div>
 					</div>
 
 					<div class="tab-pane" id="pie-chart" style="">
@@ -359,30 +353,7 @@ function getRandomInt(min, max)
 
 	<div class="row">
 
-		<div class="col-sm-4">
 
-			<div class="panel panel-primary">
-				<table class="table table-bordered table-responsive">
-					<thead>
-						<tr>
-							<th class="padding-bottom-none text-center">
-								<br>
-								<br>
-								<span class="monthly-sales"><canvas width="262" height="80" style="display: inline-block; width: 262px; height: 80px; vertical-align: top;"></canvas></span>
-							</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td class="panel-heading">
-								<h4>Pertumbuhan perbulan</h4>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-
-		</div>
 
 		<div class="col-sm-8">
 

@@ -157,21 +157,25 @@ $rbulan = array(
 
                     </select>
                 </div>
+				<div class="form-group">
+					<label for="grant1">Periode</label>
+					<input required type="number" class="form-control" name="periode" placeholder="Periode" value="{{$laporan->periode}}"  />
+				</div>
                 <div class="form-group">
-                    <label for="grant1">Tanggal Berlaku</label>
+                    <label for="grant1">Tanggal Berlaku SLO</label>
                     <input required type="date" class="form-control daterangepickerz" name="tgl_berlaku" placeholder="Tanggal Berlaku" value="{{$laporan->pembangkit->tgl_berlaku}}"  />
                 </div>
                 <div class="form-group">
-                    <label for="grant2">Tanggal Berakhir</label>
+                    <label for="grant2">Tanggal Berakhir SLO</label>
                     <input required type="date" name="tgl_berakhir" class="form-control daterangepickerz" value="{{$laporan->pembangkit->tgl_berakhir}}" id='grant2' placeholder="Tanggal Berakhir"  />
                 </div>
                 <div class="form-group">
-                    <label for="shorttitle">Nomor Sertifikat</label>
+                    <label for="shorttitle">Nomor SLO</label>
                     <input required type="text" name="no_sertifikat" class="form-control" value="{{$laporan->pembangkit->no_sertifikat}}" 	id='shorttitle' placeholder="Nomor Registrasi"  />
 
                 </div>
                 <div class="form-group">
-                    <label for="shorttitle">Nomor Registrasi</label>
+                    <label for="shorttitle">Nomor Registrasi SLO</label>
                     <input required type="text" name="no_registrasi" class="form-control" value="{{$laporan->pembangkit->no_sertifikat}}" 	id='shorttitle' placeholder="Nomor Registrasi"  />
 
                 </div>

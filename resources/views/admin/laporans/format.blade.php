@@ -52,6 +52,7 @@ $token_status = array('0' => 'Belum Di isi','1'=>'Sudah Di isi' ); ?>
               <th>Bulan</th>
               <th>Waktu Pengisian</th>
               <th>Status Laporan</th>
+              <th>Periode</th>
               <th>Aksi</th>
             </tr>
             </thead>
@@ -63,6 +64,7 @@ $token_status = array('0' => 'Belum Di isi','1'=>'Sudah Di isi' ); ?>
               <td><?php echo $bulan[$var->created_at->month].' '.$var->created_at->year ?></td>
               <td><?php echo $var->updated_at ?></td>
               <td><?php echo $var->status() ?>
+              <td><?php echo $var->periode ?>
                   @if(count($var->pembangkit->alert) != 0)
                     <p class="pull-right"> [Peringatan {{count($var->pembangkit->alert)}}] </p></td>
                   @endif

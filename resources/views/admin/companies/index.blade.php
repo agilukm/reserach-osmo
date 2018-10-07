@@ -30,7 +30,8 @@
                             <tr>
                                 <th>No.</th>
                                 <th>Nama Perusahaan</th>
-                                <th>Alamat</th>
+                                <th>Nomor Izin</th>
+                                <th>Jenis</th>
                                 <th>Kota / Kabupaten</th>
                                 <th>Aksi</th>
                             </tr>
@@ -40,7 +41,8 @@
                             <tr class="{{$key}}">
                                 <td>{{$key+1}}</td>
                                 <td>{{$company->nama}}</td>
-                                <td>{{$company->alamat}}</td>
+                                <td>{{$company->nomor_dpmptsp}}</td>
+                                <td>{{$company->jenis_izin}}</td>
                                 <td>{{$company->kota}}</td>
                                 <td>
                                     <div class="dropdown">

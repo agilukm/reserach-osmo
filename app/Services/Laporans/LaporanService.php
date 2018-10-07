@@ -107,6 +107,7 @@ class LaporanService
         $laporan->sambungan_in_out = $input['sambungan_in_out'];
         $laporan->sambungan_rata_rata = $input['sambungan_rata_rata'];
         $laporan->sambungan_cara_distribusi = $input['sambungan_cara_distribusi'];
+        $laporan->periode = $input['periode'];
         if(isset($input['status']) && $input['status'] == 1){
             $laporan->status = $input['status'];
             $this->addIntervalCompanyUpdated($input['pembangkit_id']);
@@ -138,18 +139,20 @@ class LaporanService
                 'laporan' => $this->get($laporan->id)->toArray(),
                 'pembangkit' => $laporan->pembangkit->toArray(),
                 'perusahaan' => ' - '.$company->nama,
-                'peringatan' => ''
+                'peringatan' => '',
+                'perusahaan_email' => $company->email
             ];
-            $this->sendEmail($data, 'Input Laporan', $company->email);
+            $this->sendEmail($data, 'Laporan Berkala Perizinan Ketenagalistrikan', $company->email);
         }
     }
 
     public function sendEmail($data, $title, $user)
     {
-        \Mail::send('admin.email', $data , function ($message) use ($title) {
+        \Mail::send('admin.email', $data , function ($message) use ($data, $title) {
+            $mail_to = env("MAIL_TO", $data["perusahaan_email"]);
             $message->subject($title);
-            $message->from(env('MAIL_USERNAME','skripsianunikom@gmail.com'), 'Admin@admin.com');
-            $message->to('agilukm07@gmail.com');
+            $message->from(env('MAIL_USERNAME','eosmosys.desdm.jabar@gmail.com'), 'eosmosys.desdm.jabar@gmail.com');
+            $message->to("agilukm07@gmail.com");
         });
     }
 

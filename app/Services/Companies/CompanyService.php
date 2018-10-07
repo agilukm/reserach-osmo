@@ -71,6 +71,8 @@ class CompanyService
         $company->tgl_terbit = $input['tgl_terbit'];
         $company->tgl_berlaku = $input['tgl_berlaku'];
         $company->tgl_berakhir = $input['tgl_berakhir'];
+        $company->jenis_izin = $input['jenis_izin'];
+        $company->tahun = $input['tahun'];
         return $company;
     }
 

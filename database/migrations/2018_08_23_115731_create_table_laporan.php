@@ -28,6 +28,7 @@ class CreateTableLaporan extends Migration
             $table->string('sambungan_in_out')->nullable();
             $table->string('sambungan_rata_rata')->nullable();
             $table->string('sambungan_cara_distribusi')->nullable();
+            $table->integer('periode')->nullable();
             $table->foreign('pembangkit_id')->references('id')->on("pembangkit")
                 ->onDelete("cascade")
                 ->onUpdate("cascade");
